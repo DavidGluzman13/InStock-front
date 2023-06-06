@@ -5,7 +5,7 @@ import WarehouseList from "../../components/Warehouse List/WarehouseList";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-export default function Inventory() {
+export default function Warehouse() {
   return (
     <>
       <BrowserRouter>
