@@ -11,9 +11,9 @@ export default function Warehouse() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<WarehouseList />} />
-          <Route path="/warehouse/add" element={<WarehouseAdd />} />
-          <Route path="/warehouse/edit" element={<WarehouseEdit />} />
-          <Route path="/warehouse/:id" element={<WarehouseInformation />} />
+          <Route path="/warehouses/add" element={<WarehouseAdd />} />
+          <Route path="/warehouses/edit" element={<WarehouseEdit />} />
+          <Route path="/warehouses/:id" element={<WarehouseInformation />} />
         </Routes>
       </BrowserRouter>
     </>

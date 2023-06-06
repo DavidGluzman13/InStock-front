@@ -8,10 +8,10 @@ export default function Inventory() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/inventory" element={<InventoryList />} />
-        <Route path="/inventory/add" element={<InventoryAdd />} />
-        <Route path="/inventory/edit" element={<InventoryEdit />} />
-        <Route path="/inventory/:id" element={<InventoryItemDetails />} />
+        <Route path="/inventories" element={<InventoryList />} />
+        <Route path="/inventories/add" element={<InventoryAdd />} />
+        <Route path="/inventories/edit" element={<InventoryEdit />} />
+        <Route path="/inventories/:id" element={<InventoryItemDetails />} />
       </Routes>
     </BrowserRouter>
   );
