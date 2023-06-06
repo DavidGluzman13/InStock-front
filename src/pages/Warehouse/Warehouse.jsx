@@ -7,16 +7,12 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 export default function Warehouse() {
   return (
-    <>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Navigate to="/warehouses" />} />
-          <Route path="/warehouses" element={<WarehouseList />} />
-          <Route path="/warehouses/add" element={<WarehouseAdd />} />
-          <Route path="/warehouses/edit" element={<WarehouseEdit />} />
-          <Route path="/warehouses/:id" element={<WarehouseInformation />} />
-        </Routes>
-      </BrowserRouter>
-    </>
+    <Routes>
+      <Route path="/" element={<Navigate to="/warehouses" />} />
+      <Route path="/warehouses" element={<WarehouseList />} />
+      <Route path="/warehouses/add" element={<WarehouseAdd />} />
+      <Route path="/warehouses/edit" element={<WarehouseEdit />} />
+      <Route path="/warehouses/:id" element={<WarehouseInformation />} />
+    </Routes>
   );
 }
