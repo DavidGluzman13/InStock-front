@@ -1,0 +1,50 @@
+// Mixins for the project
+
+@use "./variables" as *;
+
+// To apply styles to tablet breakpoint and up
+@mixin tablet {
+  @media screen and (min-width: $tablet-breakpoint) {
+    @content;
+  }
+}
+
+// To apply styles to desktop breakpoint and up
+@mixin desktop {
+  @media screen and (min-width: $desktop-breakpoint) {
+    @content;
+  }
+}
+
+@mixin p1 {
+  font-size: 0.9375rem;
+  line-height: 1.625rem;
+  font-weight: 400;
+
+  @include tablet {
+    font-size: 1rem;
+    line-height: 1.75rem;
+  }
+}
+
+@mixin p2 {
+  font-size: 0.8125rem;
+  line-height: 1.25rem;
+  font-weight: 400;
+
+  @include tablet {
+    font-size: 0.875rem;
+    line-height: 22px;
+  }
+}
+
+@mixin p3 {
+  font-size: 0.6875rem;
+  line-height: 1rem;
+  font-weight: 400;
+
+  @include tablet {
+    font-size: 0.75rem;
+    line-height: 1.125rem;
+  }
+}
