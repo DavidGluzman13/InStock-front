@@ -1,5 +1,6 @@
 import Inventory from "./pages/Inventory/Inventory";
 import Warehouse from "./pages/Warehouse/Warehouse";
+import "./App.scss";
 
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
