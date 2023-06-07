@@ -3,16 +3,15 @@ import WarehouseAdd from "../../components/Warehouse Add/WarehouseAdd";
 import WarehouseInformation from "../../components/Warehouse Information/WarehouseInformation";
 import WarehouseList from "../../components/Warehouse List/WarehouseList";
 
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 export default function Warehouse() {
   return (
     <Routes>
-      <Route path="/" element={<Navigate to="/warehouses" />} />
-      <Route path="/warehouses" element={<WarehouseList />} />
-      <Route path="/warehouses/add" element={<WarehouseAdd />} />
-      <Route path="/warehouses/edit" element={<WarehouseEdit />} />
-      <Route path="/warehouses/:id" element={<WarehouseInformation />} />
+      <Route path="/" element={<WarehouseList />} />
+      <Route path="/add" element={<WarehouseAdd />} />
+      <Route path="/:id/edit" element={<WarehouseEdit />} />
+      <Route path="/:id" element={<WarehouseInformation />} />
     </Routes>
   );
 }
