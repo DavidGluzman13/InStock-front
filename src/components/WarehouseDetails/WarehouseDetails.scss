@@ -1,0 +1,22 @@
+.details-wrapper {
+  position: absolute;
+  // background-color: $color-instock-white;
+}
+
+.heading {
+  display: flex;
+  justify-content: space-between;
+
+  &__titlediv {
+    display: flex;
+
+  }
+
+  &__image {
+    .edit-icon {
+    }
+
+    .edit-text {
+    }
+  }
+}
