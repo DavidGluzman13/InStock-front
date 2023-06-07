@@ -11,10 +11,10 @@ export default function Header() {
           <img className="navigation__logo" src={logo} alt="BrainFlix-logo" />
         </Link>
         <div className="navigation__buttons">
-          <NavLink to="/warehouses">
+          <NavLink className="navigation__buttons--navlink" to="/warehouses">
             <h3 className="navigation__link">Warehouses</h3>
           </NavLink>
-          <NavLink to="/inventories">
+          <NavLink className="navigation__buttons--navlink" to="/inventories">
             <h3 className="navigation__link">Inventory</h3>
           </NavLink>
         </div>
