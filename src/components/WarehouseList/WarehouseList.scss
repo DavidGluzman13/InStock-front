@@ -30,6 +30,8 @@
     outline: 1px solid $color-instock-cloud;
     padding: 8px 1rem;
     background-image: url("../../assets/Icons/search-24px.svg");
+    background-repeat: no-repeat;
+    background-position: right 5px;
     &:focus {
       outline: 1px solid $color-instock-indigo;
     }
