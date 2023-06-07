@@ -1,0 +1,16 @@
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/globals" as *;
+
+.footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  min-height: 30rem;
+  &__text {
+    text-align: center;
+    @include p3;
+    padding: 2rem;
+  }
+}

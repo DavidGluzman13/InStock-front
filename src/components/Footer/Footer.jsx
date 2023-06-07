@@ -1,3 +1,9 @@
+import "./Footer.scss";
+
 export default function Footer() {
-  return <h1>This is a footer</h1>;
+  return (
+    <div className="footer">
+      <p className="footer__text">© InStock Inc. All Rights Reserved.</p>
+    </div>
+  );
 }

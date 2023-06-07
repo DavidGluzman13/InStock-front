@@ -5,6 +5,7 @@
 @use "./mixins" as *;
 
 html {
+  background-color: $color-instock-light-grey;
   // reset
   * {
     margin: 0;
