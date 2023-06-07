@@ -1,5 +1,5 @@
 import WarehouseDetails from "../Warehouse Details/WarehouseDetails";
-import WarehouseInventoryList from "../Warehouse Inventory List/WarehouseInventoryList";
+import WarehouseInventoryList from "../WarehouseInventoryList/WarehouseInventoryList";
 
 export default function WarehouseInformation() {
   return (
