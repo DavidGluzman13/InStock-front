@@ -11,6 +11,7 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    margin-bottom: 1.5rem;
   }
 
   &__title {
@@ -26,12 +27,15 @@
 
   &__header-input {
     border-radius: 1.25rem;
+    height: 2.25rem;
     border-style: none;
     outline: 1px solid $color-instock-cloud;
     padding: 8px 1rem;
     background-image: url("../../assets/Icons/search-24px.svg");
     background-repeat: no-repeat;
-    background-position: right 5px;
+    background-position: bottom 5.6px right 1.2rem;
+    font-family: inherit;
+
     &:focus {
       outline: 1px solid $color-instock-indigo;
     }
@@ -39,9 +43,33 @@
 
   &__header-button {
     padding: 8px 0;
+    height: 2.25rem;
+    font-family: inherit;
     border-radius: 1.25rem;
     border-style: none;
     background-color: $color-instock-indigo;
     color: $color-instock-white;
+  }
+
+  &__component-data {
+    &--icon {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__warehouse-item {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  &__warehouse-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__container-mini {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
   }
 }
