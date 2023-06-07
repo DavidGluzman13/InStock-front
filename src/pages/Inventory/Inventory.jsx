@@ -9,7 +9,7 @@ export default function Inventory() {
     <Routes>
       <Route path="/" element={<InventoryList />} />
       <Route path="/add" element={<InventoryAdd />} />
-      <Route path="/edit" element={<InventoryEdit />} />
+      <Route path="/:id/edit" element={<InventoryEdit />} />
       <Route path="/:id" element={<InventoryItemDetails />} />
     </Routes>
   );

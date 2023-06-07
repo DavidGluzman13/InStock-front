@@ -10,7 +10,7 @@ export default function Warehouse() {
     <Routes>
       <Route path="/" element={<WarehouseList />} />
       <Route path="/add" element={<WarehouseAdd />} />
-      <Route path="/edit" element={<WarehouseEdit />} />
+      <Route path="/:id/edit" element={<WarehouseEdit />} />
       <Route path="/:id" element={<WarehouseInformation />} />
     </Routes>
   );
