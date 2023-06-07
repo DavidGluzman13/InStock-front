@@ -1,0 +1,47 @@
+@use "../../styles/partials/variables" as *;
+
+.component {
+  padding: 0 1.5rem;
+  position: absolute;
+  width: 100%;
+  top: 8.5rem;
+  border-radius: 3px;
+  &__header {
+    height: 12.88rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  &__title {
+    font-size: 1.75rem;
+    color: $color-instock-black;
+  }
+
+  &__header-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  &__header-input {
+    border-radius: 1.25rem;
+    border-style: none;
+    outline: 1px solid $color-instock-cloud;
+    padding: 8px 1rem;
+    background-image: url("../../assets/Icons/search-24px.svg");
+    background-repeat: no-repeat;
+    background-position: right 5px;
+    &:focus {
+      outline: 1px solid $color-instock-indigo;
+    }
+  }
+
+  &__header-button {
+    padding: 8px 0;
+    border-radius: 1.25rem;
+    border-style: none;
+    background-color: $color-instock-indigo;
+    color: $color-instock-white;
+  }
+}

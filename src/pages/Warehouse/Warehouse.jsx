@@ -1,7 +1,7 @@
-import WarehouseEdit from "../../components/Warehouse Edit/WarehouseEdit";
-import WarehouseAdd from "../../components/Warehouse Add/WarehouseAdd";
-import WarehouseInformation from "../../components/Warehouse Information/WarehouseInformation";
-import WarehouseList from "../../components/Warehouse List/WarehouseList";
+import WarehouseEdit from "../../components/WarehouseEdit/WarehouseEdit";
+import WarehouseAdd from "../../components/WarehouseAdd/WarehouseAdd";
+import WarehouseInformation from "../../components/WarehouseInformation/WarehouseInformation";
+import WarehouseList from "../../components/WarehouseList/WarehouseList";
 
 import { Routes, Route } from "react-router-dom";
 
