@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import "./InventoryItemDetails.scss";
 import backButton from "../../assets/Icons/arrow_back-24px.svg";
+import editButton from "../../assets/Icons/edit-24px-white.svg";
 
 export default function InventoryItemDetails() {
   const navigate = useNavigate();
@@ -13,6 +14,10 @@ export default function InventoryItemDetails() {
   const navigateBack = (event) => {
     event.preventDefault();
     navigate(-1);
+  };
+  const navigateToEdit = (event) => {
+    event.preventDefault();
+    navigate(`/inventories/${id}/edit`);
   };
 
   useEffect(() => {
@@ -35,12 +40,20 @@ export default function InventoryItemDetails() {
       <div className="itd-component">
         <section className="itd-component__header">
           <div className="header-start">
-            <button onClick={navigateBack}>
-              <img src={backButton} alt="back button" className="back-button" />
-            </button>
+            <a className="back-link" onClick={navigateBack}>
+              <img src={backButton} alt="back button" />
+            </a>
             <h1 className="itd-component__title">{inventoryItem.item_name}</h1>
           </div>
-          <div className="header-end"></div>
+          <div className="header-end">
+            <a className="edit-link" onClick={navigateToEdit}>
+              <img
+                src={editButton}
+                alt="edit button"
+                className="edit-link__button"
+              />
+            </a>
+          </div>
         </section>
         <section className="itd-component__body"></section>
       </div>

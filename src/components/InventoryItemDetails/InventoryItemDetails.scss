@@ -9,7 +9,24 @@
     border-radius: 4px;
     background-color: $color-instock-white;
     &__header {
+      padding: 2rem;
       display: flex;
+      justify-content: space-between;
+      .header-start {
+        display: flex;
+        .back-link {
+          align-self: self-end;
+          margin-right: 0.5rem;
+        }
+      }
+      .header-end {
+        .edit-link {
+          align-self: self-end;
+          &__button {
+            background-color: $color-instock-indigo;
+          }
+        }
+      }
       .itd-component__title {
       }
     }
