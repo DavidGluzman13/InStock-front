@@ -108,6 +108,8 @@
     border-style: none;
     background-color: $color-instock-indigo;
     color: $color-instock-white;
+    font-size: 0.9rem;
+    text-align: center;
     cursor: pointer;
     @include tablet {
       width: 10.5rem;
@@ -120,6 +122,10 @@
     border-top: 1px solid $color-instock-cloud;
     border-bottom: 1px solid $color-instock-cloud;
     justify-content: space-evenly;
+
+    &:hover {
+      background-color: $color-instock-light-grey;
+    }
 
     @include tablet {
       justify-content: space-around;
@@ -171,6 +177,7 @@
       flex-direction: row;
       justify-content: space-between;
       width: 35%;
+      gap: 0;
     }
   }
 
@@ -197,6 +204,17 @@
       @include tablet {
         width: 9rem;
       }
+
+      @include desktop {
+        width: 10rem;
+      }
+    }
+
+    &--xlarge {
+      @include tablet {
+        width: 11rem;
+      }
+
       @include desktop {
         width: 12rem;
       }
@@ -206,6 +224,7 @@
       @include tablet {
         width: 8rem;
       }
+
       @include desktop {
         width: 9rem;
       }
@@ -225,6 +244,11 @@
       display: flex;
       gap: 0.6rem;
     }
+  }
+
+  &__delete,
+  &__edit {
+    cursor: pointer;
   }
 
   &__label-container {
@@ -248,5 +272,9 @@
   &__label-mini {
     display: flex;
     align-items: center;
+  }
+
+  ul.component__list li.component__item:nth-child(2) {
+    border-top: none;
   }
 }

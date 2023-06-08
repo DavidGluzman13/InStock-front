@@ -31,9 +31,9 @@ export default function WarehouseList() {
               type="text"
               placeholder="Search..."
             />
-            <button className="component__header-button">
+            <Link to="/warehouses/add" className="component__header-button">
               + Add New Warehouse
-            </button>
+            </Link>
           </div>
         </div>
         <div className="component__body">
@@ -54,7 +54,7 @@ export default function WarehouseList() {
                   <h4>CONTACT NAME</h4>
                   <img src={sortIcon} alt="Sort Icon" />
                 </div>
-                <div className="component__label-mini component__mini-container--large">
+                <div className="component__label-mini component__mini-container--xlarge">
                   <h4>CONTACT INFORMATION</h4>
                   <img src={sortIcon} alt="Sort Icon" />
                 </div>
@@ -95,7 +95,7 @@ export default function WarehouseList() {
                     <h4 className="component__label">CONTACT NAME</h4>
                     <p className="component__data">{warehouse.contact_name}</p>
                   </div>
-                  <div className="component__mini-container component__mini-container--text component__mini-container--large">
+                  <div className="component__mini-container component__mini-container--text component__mini-container--xlarge">
                     <h4 className="component__label">CONTACT INFORMATION</h4>
                     <div className="component__data">
                       <p>{warehouse.contact_phone}</p>
