@@ -32,7 +32,6 @@ export default function WarehouseAdd() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(contact_phone);
     setContact_phone(formatPhone(contact_phone));
 
     const newWarehouse = {
@@ -46,8 +45,6 @@ export default function WarehouseAdd() {
       contact_email,
     };
 
-    console.log(contact_phone);
-    console.log(newWarehouse);
     axios
       .post("http://localhost:8080/api/warehouses/", newWarehouse)
       .then((response) => {
@@ -102,7 +99,7 @@ export default function WarehouseAdd() {
         </div>
 
         <form className="wha__form" onSubmit={handleSubmit} method="POST">
-          <div className="wha__section">
+          <div className="wha__section wha__section--divider">
             <h2 className="wha__subh">Warehouse Details</h2>
             <div className="wha__field">
               <label className="wha__label" htmlFor="Warehouse Name">

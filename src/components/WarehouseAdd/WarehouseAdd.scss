@@ -29,6 +29,7 @@
     align-items: center;
     padding-bottom: 1rem;
     border-bottom: 1px solid $color-instock-cloud;
+
     &--icon {
       padding-right: 0.5rem;
     }
@@ -37,22 +38,44 @@
       font-size: 1.55rem;
       line-height: 2.25rem;
       font-weight: 700;
+      @include tablet {
+        font-size: 2rem;
+      }
+    }
+    @include tablet {
+      justify-content: start;
+      padding-left: 2rem;
     }
   }
 
   &__form {
     // whole form
-    padding: 0;
+    @include tablet {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
   }
 
   &__section {
     // 2 main sections
+    @include tablet {
+      width: 50%;
+      margin: 1rem 0;
+      border-bottom: none;
+    }
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding-bottom: 1rem;
     border-bottom: 1px solid $color-instock-cloud;
+    &--divider {
+      @include tablet {
+        border-right: 1px solid $color-instock-cloud;
+      }
+    }
   }
 
   &__subh {
@@ -95,6 +118,9 @@
   padding: 1rem 0;
   width: 100%;
 
+  @include tablet {
+    justify-content: end;
+  }
   &__gen {
     height: 2.25rem;
     border-radius: 1.25rem;
@@ -108,13 +134,21 @@
       width: 100%;
       background-color: $color-instock-white;
       border: 1px solid $color-instock-cloud;
-      padding-top: 0.5rem;
+      padding-top: 0.75rem;
+      @include tablet {
+        width: 72px;
+        height: 38px;
+      }
     }
 
     &--submit {
       width: 100%;
       background-color: $color-instock-indigo;
       color: $color-instock-white;
+      @include tablet {
+        width: 138px;
+        height: 38px;
+      }
     }
   }
 }
