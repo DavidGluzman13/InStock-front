@@ -1,7 +1,7 @@
 import "./WarehouseAdd.scss";
 import backIcon from "../../assets/Icons/arrow_back-24px.svg";
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import axios from "axios";
 
 export default function WarehouseAdd() {
@@ -15,6 +15,7 @@ export default function WarehouseAdd() {
   const [contact_email, setContact_email] = useState("");
 
   const handleSubmit = (event) => {
+    console.log("in");
     event.preventDefault();
 
     const newWarehouse = {
@@ -27,21 +28,20 @@ export default function WarehouseAdd() {
       contact_phone,
       contact_email,
     };
-
-    useEffect(() => {
-      axios
-        .post("http://localhost:8080/warehouses", newWarehouse)
-        .then((response) => {
-          console.log(response.data);
-          // navigate("/SuccessPage"); some type of success prompt
-          setTimeout(() => {
-            navigate("/");
-          }, 2000);
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-    });
+    console.log("out");
+    console.log(newWarehouse);
+    axios
+      .post("http://localhost:8080/api/warehouses/", newWarehouse)
+      .then((response) => {
+        console.log(response.data);
+        // navigate("/SuccessPage"); some type of success prompt
+        setTimeout(() => {
+          // navigate("/");
+        }, 2000);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   const handleWarehouse_name = (event) => {
@@ -50,7 +50,6 @@ export default function WarehouseAdd() {
   const handleAddress = (event) => {
     setAddress(event.target.value);
   };
-
   const handleCity = (event) => {
     setCity(event.target.value);
   };
@@ -66,15 +65,15 @@ export default function WarehouseAdd() {
   const handleContact_phone = (event) => {
     setContact_phone(event.target.value);
   };
-
   const handleContact_email = (event) => {
     setContact_email(event.target.value);
   };
+
   return (
     <section>
       {/* hover effect */}
       <div>
-        <Link>
+        <Link to="/">
           <img src={backIcon} alt="Back Arrow icon" />
         </Link>
         <h1>Add New Warehouse</h1>
@@ -155,9 +154,11 @@ export default function WarehouseAdd() {
           <Link to="/">
             <button>Cancel</button>
           </Link>
-          <button>+ Add Warehouse</button>
+          <button type="submit">+ Add Warehouse</button>
         </div>
       </form>
     </section>
   );
 }
+
+//       onChange={() => handleAddress(e)}
