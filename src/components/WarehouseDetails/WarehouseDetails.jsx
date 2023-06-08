@@ -51,13 +51,13 @@ export default function WarehouseDetails({ currentWarehouse }) {
             <div className="wh-details__contact">
               <div className="contact-person">
                 <h4>CONTACT NAME:</h4>
-                <span>{currentWarehouse.contact_name}</span>
-                <span>{currentWarehouse.contact_position}</span>
+                <p>{currentWarehouse.contact_name}</p>
+                <p>{currentWarehouse.contact_position}</p>
               </div>
               <div className="contact-info">
                 <h4>CONTACT INFORMATION:</h4>
-                <span>{currentWarehouse.contact_phone}</span>
-                <span>{currentWarehouse.contact_email}</span>
+                <p>{currentWarehouse.contact_phone}</p>
+                <p>{currentWarehouse.contact_email}</p>
               </div>
             </div>
           </div>

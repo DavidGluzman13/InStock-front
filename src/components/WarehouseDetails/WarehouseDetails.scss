@@ -26,6 +26,10 @@
   flex-wrap: wrap;
   border-bottom: 2px solid $color-instock-cloud;
 
+  @include tablet {
+    padding: 1rem 2rem;
+  }
+
   &__titlediv {
     display: flex;
     justify-content: center;
@@ -35,9 +39,6 @@
       padding-left: 0.5rem;
       font-family: "TitilliumWeb";
     }
-  }
-
-  &__image {
   }
 }
 
@@ -64,6 +65,13 @@
   padding: 1rem;
   display: flex;
   flex-direction: column;
+  @include tablet {
+    padding: 1rem 2rem;
+  }
+
+  p {
+    @include p3;
+  }
 
   @include tablet {
     flex-direction: row;
@@ -72,6 +80,16 @@
   &__address {
     @include p3;
     padding-bottom: 1rem;
+
+    .address-text {
+      @include tablet {
+        width: 50%;
+      }
+
+      @include desktop {
+        width: 30%;
+      }
+    }
 
     @include tablet {
       width: 40%;
