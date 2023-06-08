@@ -14,9 +14,25 @@ export default function WarehouseAdd() {
   const [contact_phone, setContact_phone] = useState("");
   const [contact_email, setContact_email] = useState("");
 
+  function formatPhone(number) {
+    if (number.slice(0, 1) !== "+") {
+      return (
+        "+" +
+        number.slice(0, 1) +
+        " (" +
+        number.slice(1, 4) +
+        ") " +
+        number.slice(4, 7) +
+        "-" +
+        number.slice(7, 11)
+      );
+    }
+    return;
+  }
+
   const handleSubmit = (event) => {
-    console.log("in");
     event.preventDefault();
+    setContact_phone(formatPhone(contact_phone));
 
     const newWarehouse = {
       warehouse_name,
@@ -28,7 +44,6 @@ export default function WarehouseAdd() {
       contact_phone,
       contact_email,
     };
-    console.log("out");
     console.log(newWarehouse);
     axios
       .post("http://localhost:8080/api/warehouses/", newWarehouse)
@@ -151,9 +166,9 @@ export default function WarehouseAdd() {
         </div>
         {/* buttons */}
         <div>
-          <Link to="/">
+          {/* <Link to="/">
             <button>Cancel</button>
-          </Link>
+          </Link> */}
           <button type="submit">+ Add Warehouse</button>
         </div>
       </form>
