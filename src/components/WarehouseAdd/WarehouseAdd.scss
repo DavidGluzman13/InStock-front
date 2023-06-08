@@ -94,21 +94,25 @@
   background-color: rgba(247, 248, 249, 0.7);
   padding: 1rem 0;
   width: 100%;
-  border: 1px solid red;
 
   &__gen {
-    width: 50%;
     height: 2.25rem;
     border-radius: 1.25rem;
     border-style: none;
     font-size: 0.9rem;
     text-align: center;
+    width: 9rem;
+    margin: 0 0.5rem;
+
     &--cancel {
+      width: 100%;
       background-color: $color-instock-white;
       border: 1px solid $color-instock-cloud;
+      padding-top: 0.5rem;
     }
 
     &--submit {
+      width: 100%;
       background-color: $color-instock-indigo;
       color: $color-instock-white;
     }

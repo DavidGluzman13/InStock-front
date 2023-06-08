@@ -207,12 +207,13 @@ export default function WarehouseAdd() {
           </div>
 
           <div className="wha-button">
-            <Link to="/">
-              <button className="wha-button__gen wha-button__gen--cancel">
-                Cancel
-              </button>
+            <Link className="wha-button__gen wha-button__gen--cancel" to="/">
+              Cancel
             </Link>
-            <button className="wha-button__gen wha-button__gen--submit" type="submit">
+            <button
+              className="wha-button__gen wha-button__gen--submit"
+              type="submit"
+            >
               + Add Warehouse
             </button>
           </div>
