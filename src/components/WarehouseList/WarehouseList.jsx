@@ -6,6 +6,7 @@ import sortIcon from "../../assets/Icons/sort-24px.svg";
 
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export default function WarehouseList() {
   const [warehouses, setWarehouses] = useState(null);
@@ -36,64 +37,90 @@ export default function WarehouseList() {
           </div>
         </div>
         <div className="component__body">
-          <div className="sort">
-            <div className="sort__item">
-              WAREHOUSE <img src={sortIcon} alt="sort icon" />
+          <ul className="component__list">
+            <div className="component__label-container">
+              <div className="component__label-left">
+                <div className="component__label-mini component__mini-container--medium ">
+                  <h4>WAREHOUSE</h4>
+                  <img src={sortIcon} alt="Sort Icon" />
+                </div>
+                <div className="component__label-mini component__mini-container--large">
+                  <h4>ADDRESS</h4>
+                  <img src={sortIcon} alt="Sort Icon" />
+                </div>
+              </div>
+              <div className="component__label-right">
+                <div className="component__label-mini component__mini-container--medium">
+                  <h4>CONTACT NAME</h4>
+                  <img src={sortIcon} alt="Sort Icon" />
+                </div>
+                <div className="component__label-mini component__mini-container--large">
+                  <h4>CONTACT INFORMATION</h4>
+                  <img src={sortIcon} alt="Sort Icon" />
+                </div>
+              </div>
+              <div className="component__label-icons component__mini-container--small">
+                <h4>ACTIONS</h4>
+              </div>
             </div>
-            <div className="sort__item">
-              ADDRESS <img src={sortIcon} alt="sort icon" />
-            </div>
-            <div className="sort__item">
-              CONTENT NAME <img src={sortIcon} alt="sort icon" />
-            </div>
-            <div className="sort__item">
-              CONTACT INFORMATION <img src={sortIcon} alt="sort icon" />
-            </div>
-            <div className="sort__item">ACTIONS</div>
-          </div>
-          <ul className="component__warehouse-list">
             {warehouses.map((warehouse) => (
-              <li className="component__warehouse-item">
-                <hr className="component__divider" />
-                <div className="component__text-container">
-                  <div className="component__warehouse-container">
-                    <div className="component__container-mini">
-                      <p className="component__label h4">WAREHOUSE</p>
-                      <p className="component__data component__data--icon">
-                        {warehouse.warehouse_name}
-                        <img src={arrowIcon} alt="arrow icon" />
-                      </p>
-                    </div>
-                    <div className="component__container-mini">
-                      <p className="component__label h4">ADDRESS</p>
-                      <p className="component__data ">
-                        {warehouse.address}, {warehouse.city},{" "}
-                        {warehouse.country}
-                      </p>
-                    </div>
+              <li className="component__item">
+                <div className="component__item-container component__item-container--left">
+                  <div className="component__mini-container component__mini-container--text component__mini-container--medium">
+                    <h4 className="component__label">WAREHOUSE</h4>
+                    <Link
+                      to={`/warehouses/${warehouse.id}`}
+                      className="component__data--arrow"
+                    >
+                      {warehouse.warehouse_name}
+                      <img src={arrowIcon} alt="Arrow Icon" />
+                    </Link>
                   </div>
-                  <div className="component__warehouse-container">
-                    <div className="component__container-mini">
-                      <p className="component__label h4">CONTACT NAME</p>
-                      <p className="component__data">
-                        {warehouse.contact_name}
-                      </p>
-                    </div>
-                    <div className="component__container-mini">
-                      <p className="component__label h4">CONTACT INFORMATION</p>
-                      <p className="component__data ">
-                        {warehouse.contact_phone}
-                      </p>
-                      <p className="component__data ">
-                        {warehouse.contact_email}
-                      </p>
-                    </div>
+                  <div className="component__mini-container component__mini-container--text component__mini-container--large">
+                    <h4 className="component__label">ADDRESS</h4>
+                    <p className="component__data">
+                      {warehouse.address}, {warehouse.city}, {warehouse.country}
+                    </p>
+                  </div>
+                  <div className="component__mini-container component__mini-container--delete">
+                    <img
+                      className="component__delete component__delete--mobile"
+                      src={deleteIcon}
+                      alt="Delete icon"
+                    />
                   </div>
                 </div>
-
-                <div className="component__warehouse-container component__warehouse-container--icons">
-                  <img src={deleteIcon} alt="delete icon" />
-                  <img src={editIcon} alt="edit icon" />
+                <div className="component__item-container component__item-container--right">
+                  <div className="component__mini-container component__mini-container--text component__mini-container--medium">
+                    <h4 className="component__label">CONTACT NAME</h4>
+                    <p className="component__data">{warehouse.contact_name}</p>
+                  </div>
+                  <div className="component__mini-container component__mini-container--text component__mini-container--large">
+                    <h4 className="component__label">CONTACT INFORMATION</h4>
+                    <div className="component__data">
+                      <p>{warehouse.contact_phone}</p>
+                      <p>{warehouse.contact_email}</p>
+                    </div>
+                  </div>
+                  <div className="component__mini-container component__mini-container--edit">
+                    <img
+                      className="component__edit component__edit--mobile"
+                      src={editIcon}
+                      alt="Edit icon"
+                    />
+                  </div>
+                </div>
+                <div className="component__icons-holder component__mini-container--small">
+                  <img
+                    className="component__delete "
+                    src={deleteIcon}
+                    alt="Delete icon"
+                  />
+                  <img
+                    className="component__edit"
+                    src={editIcon}
+                    alt="Edit icon"
+                  />
                 </div>
               </li>
             ))}
