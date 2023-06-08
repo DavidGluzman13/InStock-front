@@ -100,7 +100,7 @@ export default function WarehouseList() {
               </div>
             </div>
             {warehouses.map((warehouse) => (
-              <li className="component__item">
+              <li key={warehouse.id} className="component__item">
                 <div className="component__item-container component__item-container--left">
                   <div className="component__mini-container component__mini-container--text component__mini-container--medium">
                     <h4 className="component__label">WAREHOUSE</h4>
@@ -123,15 +123,16 @@ export default function WarehouseList() {
                       className="component__delete component__delete--mobile"
                       src={deleteIcon}
                       alt="Delete icon"
+                      onClick={() => openModal(warehouse)}
                     />
                   </div>
                 </div>
                 <div className="component__item-container component__item-container--right">
-                  <div className="component__mini-container component__mini-container--text component__mini-container--medium component__mini-container--gap">
+                  <div className="component__mini-container component__mini-container--text component__mini-container--medium">
                     <h4 className="component__label">CONTACT NAME</h4>
                     <p className="component__data">{warehouse.contact_name}</p>
                   </div>
-                  <div className="component__mini-container component__mini-container--text component__mini-container--xlarge component__mini-container--gap">
+                  <div className="component__mini-container component__mini-container--text component__mini-container--xlarge">
                     <h4 className="component__label">CONTACT INFORMATION</h4>
                     <div className="component__data">
                       <p>{warehouse.contact_phone}</p>
@@ -150,6 +151,7 @@ export default function WarehouseList() {
                   <img
                     className="component__delete "
                     src={deleteIcon}
+                    onClick={() => openModal(warehouse)}
                     alt="Delete icon"
                   />
                   <img
@@ -163,6 +165,25 @@ export default function WarehouseList() {
           </ul>
         </div>
       </section>
+
+      {showModal && selectedWarehouse && (
+        <Modal title={selectedWarehouse.warehouse_name} onClose={closeModal}>
+          <div className="modal__buttons">
+            <button
+              className="modal__btn modal__btn--cancel"
+              onClick={closeModal}
+            >
+              Cancel
+            </button>
+            <button
+              className="modal__btn modal__btn--delete"
+              onClick={handleDelete}
+            >
+              Delete
+            </button>
+          </div>
+        </Modal>
+      )}
     </div>
   );
 }
