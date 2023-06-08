@@ -91,11 +91,11 @@ export default function WarehouseList() {
                   </div>
                 </div>
                 <div className="component__item-container component__item-container--right">
-                  <div className="component__mini-container component__mini-container--text component__mini-container--medium">
+                  <div className="component__mini-container component__mini-container--text component__mini-container--medium component__mini-container--gap">
                     <h4 className="component__label">CONTACT NAME</h4>
                     <p className="component__data">{warehouse.contact_name}</p>
                   </div>
-                  <div className="component__mini-container component__mini-container--text component__mini-container--xlarge">
+                  <div className="component__mini-container component__mini-container--text component__mini-container--xlarge component__mini-container--gap">
                     <h4 className="component__label">CONTACT INFORMATION</h4>
                     <div className="component__data">
                       <p>{warehouse.contact_phone}</p>

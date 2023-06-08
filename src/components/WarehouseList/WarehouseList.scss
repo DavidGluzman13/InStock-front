@@ -144,10 +144,12 @@
   }
 
   &__data {
+    font-size: 0.8rem;
     &--arrow {
       display: flex;
       align-items: center;
       color: $color-instock-indigo;
+      font-size: 0.8rem;
 
       @include tablet {
         font-size: 0.8rem;
@@ -199,14 +201,16 @@
       flex-direction: column;
       gap: 0.4rem;
     }
-
+    &--gap {
+      gap: 0.7rem;
+    }
     &--large {
       @include tablet {
         width: 9rem;
       }
 
       @include desktop {
-        width: 10rem;
+        width: 17rem;
       }
     }
 
@@ -259,6 +263,7 @@
       background-color: $color-instock-light-grey;
       justify-content: space-around;
       padding: 0.6875rem 0;
+      align-items: center;
     }
   }
 
