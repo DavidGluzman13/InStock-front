@@ -11,11 +11,14 @@ html {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: TrilliumWeb, sans-serif;
     color: $color-instock-black;
   }
 
   body {
+    * {
+      font-family: "TitilliumWeb", sans-serif;
+    }
+
     a {
       text-decoration: none;
       color: inherit;
