@@ -46,13 +46,14 @@ export default function InventoryItemDetails() {
             <h1 className="itd-component__title">{inventoryItem.item_name}</h1>
           </div>
           <div className="header-end">
-            <a className="edit-link" onClick={navigateToEdit}>
+            <button className="edit-button" onClick={navigateToEdit}>
               <img
                 src={editButton}
-                alt="edit button"
-                className="edit-link__button"
+                alt="edit icon"
+                className="edit-button__icon"
               />
-            </a>
+              <span className="edit-button__text">Edit</span>
+            </button>
           </div>
         </section>
         <section className="itd-component__body"></section>

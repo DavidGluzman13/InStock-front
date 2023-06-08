@@ -1,4 +1,5 @@
 @use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
 
 .itd-component-wrapper {
   position: absolute;
@@ -22,12 +23,25 @@
         }
       }
       .header-end {
-        .edit-link {
-          align-self: center;
-          &__button {
-            padding: 0.5rem;
-            border-radius: 50%;
-            background-color: $color-instock-indigo;
+        .edit-button {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          height: 2.25rem;
+          padding: 0.4rem;
+          border: none;
+          border-radius: 1.25rem;
+          color: $color-instock-white;
+          background-color: $color-instock-indigo;
+          padding: 0 1rem;
+          &__icon {
+          }
+          &__text {
+            color: $color-instock-white;
+            display: none;
+            @include tablet {
+              display: inline;
+            }
           }
         }
       }
