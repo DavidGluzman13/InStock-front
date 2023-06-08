@@ -26,25 +26,23 @@ export default function WarehouseList() {
 
   const handleDelete = () => {
     if (selectedWarehouse) {
-      // axios
-      //   .delete(`http://localhost:8080/api/warehouses/${selectedWarehouse.id}`)
-      //   .then((response) => {
-      //     console.log("Warehouse deleted");
-      //     setWarehouses((prevWarehouses) =>
-      //       prevWarehouses.filter(
-      //         (warehouse) => warehouse.id !== selectedWarehouse.id
-      //       )
-      //     );
-      //     setShowModal(false);
-      //     setSelectedWarehouse(null);
-      //   })
-      //   .catch((error) => {
-      //     console.error("Error deleting warehouse:", error);
-      //     setShowModal(false);
-      //     setSelectedWarehouse(null);
-      //   });
+      axios
+        .delete(`http://localhost:8080/api/warehouses/${selectedWarehouse.id}`)
+        .then((response) => {
+          console.log("Warehouse deleted");
+          axios
+            .get("http://localhost:8080/api/warehouses")
+            .then((response) => setWarehouses(response.data));
+
+          setShowModal(false);
+          setSelectedWarehouse(null);
+        })
+        .catch((error) => {
+          console.error("Error deleting warehouse:", error);
+          setShowModal(false);
+          setSelectedWarehouse(null);
+        });
       console.log("I m here");
-      closeModal();
     }
   };
 
