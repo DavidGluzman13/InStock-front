@@ -216,7 +216,7 @@
 
     &--xlarge {
       @include tablet {
-        width: 1rem;
+        width: 11rem;
       }
 
       @include desktop {
@@ -261,14 +261,12 @@
     @include tablet {
       display: flex;
       background-color: $color-instock-light-grey;
-      // justify-content: space-around;
+      justify-content: space-around;
       padding: 0.6875rem 0;
       align-items: center;
     }
   }
 
-  &__label-text {
-  }
   &__label-left,
   &__label-right {
     display: flex;

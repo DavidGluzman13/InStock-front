@@ -41,26 +41,26 @@ export default function WarehouseList() {
             <div className="component__label-container">
               <div className="component__label-left">
                 <div className="component__label-mini component__mini-container--medium ">
-                  <h4 className="component__label-text">WAREHOUSE</h4>
+                  <h4>WAREHOUSE</h4>
                   <img src={sortIcon} alt="Sort Icon" />
                 </div>
                 <div className="component__label-mini component__mini-container--large">
-                  <h4 className="component__label-text">ADDRESS</h4>
+                  <h4>ADDRESS</h4>
                   <img src={sortIcon} alt="Sort Icon" />
                 </div>
               </div>
               <div className="component__label-right">
                 <div className="component__label-mini component__mini-container--medium">
-                  <h4 className="component__label-text">CONTACT NAME</h4>
+                  <h4>CONTACT NAME</h4>
                   <img src={sortIcon} alt="Sort Icon" />
                 </div>
                 <div className="component__label-mini component__mini-container--xlarge">
-                  <h4 className="component__label-text">CONTACT INFORMATION</h4>
+                  <h4>CONTACT INFORMATION</h4>
                   <img src={sortIcon} alt="Sort Icon" />
                 </div>
               </div>
               <div className="component__label-icons component__mini-container--small">
-                <h4 className="component__label-text">ACTIONS</h4>
+                <h4>ACTIONS</h4>
               </div>
             </div>
             {warehouses.map((warehouse) => (
