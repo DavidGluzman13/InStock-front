@@ -32,26 +32,27 @@
     justify-content: space-between;
 
     @include tablet {
-      max-width: 80%;
-      width: 80%;
+      width: 42rem;
 
       height: 16.375rem;
       padding: 1rem 1.4rem 2rem 3rem;
     }
 
-    @include desktop {
-      max-width: 50%;
-      width: 50%;
-    }
+    // @include desktop {
+    //   max-width: 50%;
+    //   width: 50%;
+    // }
   }
 
   &__btn {
     border-radius: 1.25rem;
-    padding: 0.5rem 2.2rem;
+    padding: 0.5rem 2.9375rem;
     border: none;
     cursor: pointer;
+    flex: 1;
     @include tablet {
       padding: 8px 1rem;
+      flex: 0;
     }
 
     @include desktop {
@@ -72,10 +73,6 @@
   }
 
   &__buttons-container {
-    @include tablet {
-      align-self: flex-end;
-      margin-right: 2rem;
-    }
   }
   &__text {
     display: flex;
@@ -100,8 +97,12 @@
   }
   &__buttons {
     display: flex;
-    // gap: 1rem;
-    justify-content: space-around;
+    gap: 1rem;
+
+    @include tablet {
+      align-self: flex-end;
+      margin-right: 2rem;
+    }
   }
   &__description {
     @include p1;

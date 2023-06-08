@@ -17,7 +17,7 @@ const Modal = ({ title, children, onClose }) => {
           </div>
         </div>
 
-        <div className="modal__buttons-container">{children}</div>
+        <>{children}</>
       </div>
     </div>
   );
