@@ -56,7 +56,15 @@ export default function InventoryItemDetails() {
             </button>
           </div>
         </section>
-        <section className="itd-component__body"></section>
+        <section className="itd-component__body">
+          <div className="body-start">
+            <div className="row">
+              <h4>ITEM DESCRIPTION:</h4>
+              <p className="item-description">{inventoryItem.description}</p>
+            </div>
+          </div>
+          <div className="body-end"></div>
+        </section>
       </div>
     </div>
   );

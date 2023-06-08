@@ -5,7 +5,7 @@
   position: absolute;
   top: 8.5rem;
   @include tablet {
-    top: 5.6rem;
+    top: 5.55rem;
   }
   width: 100%;
   .itd-component {
@@ -37,8 +37,6 @@
           color: $color-instock-white;
           background-color: $color-instock-indigo;
           padding: 0 1rem;
-          &__icon {
-          }
           &__text {
             color: $color-instock-white;
             display: none;
@@ -48,10 +46,16 @@
           }
         }
       }
-      .itd-component__title {
-      }
     }
     &__body {
+      padding: 1.5rem 2rem 2rem 2rem;
+      .body-start {
+        .row {
+          .item-description {
+            @include p3;
+          }
+        }
+      }
     }
   }
 }
