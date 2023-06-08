@@ -86,97 +86,138 @@ export default function WarehouseAdd() {
   const handleContact_email = (event) => {
     setContact_email(event.target.value);
   };
-
+  // wha === warehouse add
   return (
-    <section>
-      {/* hover effect */}
-      <div>
-        <Link to="/">
-          <img src={backIcon} alt="Back Arrow icon" />
-        </Link>
-        <h1>Add New Warehouse</h1>
-      </div>
-      {/* bottom border line */}
-      <form onSubmit={handleSubmit} method="POST">
-        <div>
-          <h2>Warehouse Details</h2>
-          <label htmlFor="Warehouse Name">Warehouse Name</label>
-          <input
-            value={warehouse_name}
-            onChange={handleWarehouse_name}
-            type="text"
-            placeholder="Warehouse Name"
-          ></input>
-
-          <label htmlFor="Street Address">Street Address</label>
-          <input
-            value={address}
-            onChange={handleAddress}
-            type="text"
-            placeholder="Street Address"
-          ></input>
-
-          <label htmlFor="City">City</label>
-          <input
-            value={city}
-            onChange={handleCity}
-            type="text"
-            placeholder="City"
-          ></input>
-
-          <label htmlFor="Country">Country</label>
-          <input
-            value={country}
-            onChange={handleCountry}
-            type="text"
-            placeholder="Country"
-          ></input>
+    <div className="wha-wrapper">
+      <section className="wha">
+        <div className="wha__header">
+          <Link to="/">
+            <img
+              className="wha__header--icon"
+              src={backIcon}
+              alt="Back Arrow icon"
+            />
+          </Link>
+          <h1 className="wha__header--title h1">Add New Warehouse</h1>
         </div>
-        {/* bottom border line */}
-        <div>
-          <h2>Contact Details</h2>
-          <label htmlFor="Contact Name">Contact Name</label>
-          <input
-            value={contact_name}
-            onChange={handleContact_name}
-            type="text"
-            placeholder="Contact Name"
-          ></input>
 
-          <label htmlFor="Position">Position</label>
-          <input
-            value={contact_position}
-            onChange={handleContact_position}
-            type="text"
-            placeholder="Position"
-          ></input>
+        <form className="wha__form" onSubmit={handleSubmit} method="POST">
+          <div className="wha__section">
+            <h2 className="wha__subh">Warehouse Details</h2>
+            <div className="wha__field">
+              <label className="wha__label" htmlFor="Warehouse Name">
+                Warehouse Name
+              </label>
+              <input
+                className="wha__input"
+                value={warehouse_name}
+                onChange={handleWarehouse_name}
+                type="text"
+                placeholder="Warehouse Name"
+              ></input>
+            </div>
+            <div className="wha__field">
+              <label className="wha__label" htmlFor="Street Address">
+                Street Address
+              </label>
+              <input
+                className="wha__input"
+                value={address}
+                onChange={handleAddress}
+                type="text"
+                placeholder="Street Address"
+              ></input>
+            </div>
+            <div className="wha__field">
+              <label className="wha__label" htmlFor="City">
+                City
+              </label>
+              <input
+                className="wha__input"
+                value={city}
+                onChange={handleCity}
+                type="text"
+                placeholder="City"
+              ></input>
+            </div>
+            <div className="wha__field">
+              <label className="wha__label" htmlFor="Country">
+                Country
+              </label>
+              <input
+                className="wha__input"
+                value={country}
+                onChange={handleCountry}
+                type="text"
+                placeholder="Country"
+              ></input>
+            </div>
+          </div>
 
-          <label htmlFor="Phone Number">Phone Number</label>
-          <input
-            value={contact_phone}
-            onChange={handleContact_phone}
-            type="text"
-            placeholder="Phone Number"
-          ></input>
+          <div className="wha__section">
+            <h2 className="wha__subh">Contact Details</h2>
+            <div className="wha__field">
+              <label className="wha__label" htmlFor="Contact Name">
+                Contact Name
+              </label>
+              <input
+                className="wha__input"
+                value={contact_name}
+                onChange={handleContact_name}
+                type="text"
+                placeholder="Contact Name"
+              ></input>
+            </div>
+            <div className="wha__field">
+              <label className="wha__label" htmlFor="Position">
+                Position
+              </label>
+              <input
+                className="wha__input"
+                value={contact_position}
+                onChange={handleContact_position}
+                type="text"
+                placeholder="Position"
+              ></input>
+            </div>
+            <div className="wha__field">
+              <label className="wha__label" htmlFor="Phone Number">
+                Phone Number
+              </label>
+              <input
+                className="wha__input"
+                value={contact_phone}
+                onChange={handleContact_phone}
+                type="text"
+                placeholder="Phone Number"
+              ></input>
+            </div>
+            <div className="wha__field">
+              <label className="wha__label" htmlFor="Email">
+                Email
+              </label>
+              <input
+                className="wha__input"
+                value={contact_email}
+                onChange={handleContact_email}
+                type="text"
+                placeholder="Email"
+              ></input>
+            </div>
+          </div>
 
-          <label htmlFor="Email">Email</label>
-          <input
-            value={contact_email}
-            onChange={handleContact_email}
-            type="text"
-            placeholder="Email"
-          ></input>
-        </div>
-        {/* buttons */}
-        <div>
-          {/* <Link to="/">
-            <button>Cancel</button>
-          </Link> */}
-          <button type="submit">+ Add Warehouse</button>
-        </div>
-      </form>
-    </section>
+          <div className="wha-button">
+            <Link to="/">
+              <button className="wha-button__gen wha-button__gen--cancel">
+                Cancel
+              </button>
+            </Link>
+            <button className="wha-button__gen wha-button__gen--submit" type="submit">
+              + Add Warehouse
+            </button>
+          </div>
+        </form>
+      </section>
+    </div>
   );
 }
-
-//       onChange={() => handleAddress(e)}
