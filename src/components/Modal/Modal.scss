@@ -36,7 +36,7 @@
       width: 80%;
 
       height: 16.375rem;
-      padding: 1rem 3rem 2rem 3rem;
+      padding: 1rem 1.4rem 2rem 3rem;
     }
 
     @include desktop {
@@ -47,7 +47,7 @@
 
   &__btn {
     border-radius: 1.25rem;
-    padding: 0.5rem 2.9375rem;
+    padding: 0.5rem 2.2rem;
     border: none;
     cursor: pointer;
     @include tablet {
@@ -74,6 +74,7 @@
   &__buttons-container {
     @include tablet {
       align-self: flex-end;
+      margin-right: 2rem;
     }
   }
   &__text {
@@ -99,7 +100,8 @@
   }
   &__buttons {
     display: flex;
-    gap: 1rem;
+    // gap: 1rem;
+    justify-content: space-around;
   }
   &__description {
     @include p1;
