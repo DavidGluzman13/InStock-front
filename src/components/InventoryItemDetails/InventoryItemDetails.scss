@@ -4,6 +4,9 @@
 .itd-component-wrapper {
   position: absolute;
   top: 8.5rem;
+  @include tablet {
+    top: 5.6rem;
+  }
   width: 100%;
   .itd-component {
     margin: 0 1rem;
@@ -11,7 +14,7 @@
     border-top-right-radius: 4px;
     background-color: $color-instock-white;
     &__header {
-      padding: 2rem;
+      padding: 2rem 2rem 1.5rem 2rem;
       display: flex;
       justify-content: space-between;
       border-bottom: 1px solid $color-instock-cloud;
