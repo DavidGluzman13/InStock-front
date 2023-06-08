@@ -34,7 +34,7 @@
     @include tablet {
       width: 42rem;
 
-      height: 16.375rem;
+      height: 17rem;
       padding: 1rem 1.4rem 2rem 3rem;
     }
   }
@@ -46,12 +46,8 @@
     cursor: pointer;
     flex: 1;
     @include tablet {
-      padding: 8px 1rem;
+      padding: 8px 1.4rem;
       flex: 0;
-    }
-
-    @include desktop {
-      padding: 10px 1.4rem;
     }
 
     &--cancel {
@@ -67,8 +63,6 @@
     }
   }
 
-  &__buttons-container {
-  }
   &__text {
     display: flex;
     flex-direction: column;
@@ -78,6 +72,7 @@
 
     @include tablet {
       margin-bottom: 2rem;
+      padding-right: 4rem;
     }
   }
 
