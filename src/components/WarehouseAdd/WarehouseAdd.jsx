@@ -27,11 +27,12 @@ export default function WarehouseAdd() {
         number.slice(7, 11)
       );
     }
-    return;
+    return number;
   }
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    console.log(contact_phone);
     setContact_phone(formatPhone(contact_phone));
 
     const newWarehouse = {
@@ -44,6 +45,8 @@ export default function WarehouseAdd() {
       contact_phone,
       contact_email,
     };
+
+    console.log(contact_phone);
     console.log(newWarehouse);
     axios
       .post("http://localhost:8080/api/warehouses/", newWarehouse)
