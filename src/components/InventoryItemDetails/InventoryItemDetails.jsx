@@ -1,12 +1,19 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import "./InventoryItemDetails.scss";
+import backButton from "../../assets/Icons/arrow_back-24px.svg";
 
 export default function InventoryItemDetails() {
+  const navigate = useNavigate();
   const url = "http://localhost:8080/api/inventories/";
   const { id } = useParams();
   const [inventoryItem, setInventoryItem] = useState(null);
+
+  const navigateBack = (event) => {
+    event.preventDefault();
+    navigate(-1);
+  };
 
   useEffect(() => {
     axios
@@ -23,5 +30,20 @@ export default function InventoryItemDetails() {
     document.title = `InStock - Inventory Item Detail - ${inventoryItem.item_name}`;
   }
 
-  return <h1>{inventoryItem.item_name}</h1>;
+  return (
+    <div className="itd-component-wrapper">
+      <div className="itd-component">
+        <section className="itd-component__header">
+          <div className="header-start">
+            <button onClick={navigateBack}>
+              <img src={backButton} alt="back button" className="back-button" />
+            </button>
+            <h1 className="itd-component__title">{inventoryItem.item_name}</h1>
+          </div>
+          <div className="header-end"></div>
+        </section>
+        <section className="itd-component__body"></section>
+      </div>
+    </div>
+  );
 }

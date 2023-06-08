@@ -1,0 +1,19 @@
+@use "../../styles/partials/variables" as *;
+
+.itd-component-wrapper {
+  position: absolute;
+  top: 8.5rem;
+  width: 100%;
+  .itd-component {
+    margin: 0 1rem;
+    border-radius: 4px;
+    background-color: $color-instock-white;
+    &__header {
+      display: flex;
+      .itd-component__title {
+      }
+    }
+    &__body {
+    }
+  }
+}
