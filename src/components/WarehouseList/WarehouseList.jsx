@@ -3,6 +3,7 @@ import arrowIcon from "../../assets/Icons/chevron_right-24px.svg";
 import deleteIcon from "../../assets/Icons/delete_outline-24px.svg";
 import editIcon from "../../assets/Icons/edit-24px.svg";
 import sortIcon from "../../assets/Icons/sort-24px.svg";
+import Modal from "../Modal/Modal";
 
 import { useState, useEffect } from "react";
 import axios from "axios";
@@ -10,6 +11,8 @@ import { Link } from "react-router-dom";
 
 export default function WarehouseList() {
   const [warehouses, setWarehouses] = useState(null);
+  const [selectedWarehouse, setSelectedWarehouse] = useState(null);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     axios
@@ -20,20 +23,43 @@ export default function WarehouseList() {
   if (!warehouses) {
     return <h1>Loading..</h1>;
   }
+
+  const handleDelete = () => {
+    if (selectedWarehouse) {
+      // axios
+      //   .delete(`http://localhost:8080/api/warehouses/${selectedWarehouse.id}`)
+      //   .then((response) => {
+      //     console.log("Warehouse deleted");
+      //     setWarehouses((prevWarehouses) =>
+      //       prevWarehouses.filter(
+      //         (warehouse) => warehouse.id !== selectedWarehouse.id
+      //       )
+      //     );
+      //     setShowModal(false);
+      //     setSelectedWarehouse(null);
+      //   })
+      //   .catch((error) => {
+      //     console.error("Error deleting warehouse:", error);
+      //     setShowModal(false);
+      //     setSelectedWarehouse(null);
+      //   });
+      console.log("I m here");
+      closeModal();
+    }
+  };
+
+  const openModal = (warehouse) => {
+    setSelectedWarehouse(warehouse);
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+    setSelectedWarehouse(null);
+  };
+
   return (
     <>
-      {isModalOpen && (
-        <div className="modal">
-          <div className="modal__content">
-            <h2>Confirm Deletion</h2>
-            <p>Are you sure you want to delete this warehouse?</p>
-            <div className="modal__buttons">
-              <button onClick={handleModalClose}>Cancel</button>
-              <button>Delete</button>
-            </div>
-          </div>
-        </div>
-      )}
       <div className="component-wrapper">
         <section className="component">
           <div className="component__header">
@@ -77,7 +103,7 @@ export default function WarehouseList() {
                 </div>
               </div>
               {warehouses.map((warehouse) => (
-                <li className="component__item">
+                <li key={warehouse.id} className="component__item">
                   <div className="component__item-container component__item-container--left">
                     <div className="component__mini-container component__mini-container--text component__mini-container--medium">
                       <h4 className="component__label">WAREHOUSE</h4>
@@ -101,6 +127,7 @@ export default function WarehouseList() {
                         className="component__delete component__delete--mobile"
                         src={deleteIcon}
                         alt="Delete icon"
+                        onClick={() => openModal(warehouse)}
                       />
                     </div>
                   </div>
@@ -130,6 +157,7 @@ export default function WarehouseList() {
                     <img
                       className="component__delete "
                       src={deleteIcon}
+                      onClick={() => openModal(warehouse)}
                       alt="Delete icon"
                     />
                     <img
@@ -143,6 +171,26 @@ export default function WarehouseList() {
             </ul>
           </div>
         </section>
+
+        {/* Modal */}
+        {showModal && selectedWarehouse && (
+          <Modal title={selectedWarehouse.warehouse_name} onClose={closeModal}>
+            <div className="modal__buttons">
+              <button
+                className="modal__btn modal__btn--cancel"
+                onClick={closeModal}
+              >
+                Cancel
+              </button>
+              <button
+                className="modal__btn modal__btn--delete"
+                onClick={handleDelete}
+              >
+                Delete
+              </button>
+            </div>
+          </Modal>
+        )}
       </div>
     </>
   );
