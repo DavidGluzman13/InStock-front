@@ -55,31 +55,6 @@ export default function WarehouseAdd() {
       });
   };
 
-  const handleWarehouse_name = (event) => {
-    setWarehouse_name(event.target.value);
-  };
-  const handleAddress = (event) => {
-    setAddress(event.target.value);
-  };
-  const handleCity = (event) => {
-    setCity(event.target.value);
-  };
-  const handleCountry = (event) => {
-    setCountry(event.target.value);
-  };
-  const handleContact_name = (event) => {
-    setContact_name(event.target.value);
-  };
-  const handleContact_position = (event) => {
-    setContact_position(event.target.value);
-  };
-  const handleContact_phone = (event) => {
-    setContact_phone(event.target.value);
-  };
-  const handleContact_email = (event) => {
-    setContact_email(event.target.value);
-  };
-
   // wha === warehouse add
   return (
     <div className="wha-wrapper">
@@ -105,7 +80,7 @@ export default function WarehouseAdd() {
               <input
                 className={"wha__input"}
                 value={warehouse_name}
-                onChange={handleWarehouse_name}
+                onChange={(e) => setWarehouse_name(e.target.value)}
                 type="text"
                 placeholder="Warehouse Name"
               ></input>
@@ -117,7 +92,7 @@ export default function WarehouseAdd() {
               <input
                 className="wha__input"
                 value={address}
-                onChange={handleAddress}
+                onChange={(e) => setAddress(e.target.value)}
                 type="text"
                 placeholder="Street Address"
               ></input>
@@ -129,7 +104,7 @@ export default function WarehouseAdd() {
               <input
                 className="wha__input"
                 value={city}
-                onChange={handleCity}
+                onChange={(e) => setCity(e.target.value)}
                 type="text"
                 placeholder="City"
               ></input>
@@ -141,7 +116,7 @@ export default function WarehouseAdd() {
               <input
                 className="wha__input"
                 value={country}
-                onChange={handleCountry}
+                onChange={(e) => setCountry(e.target.value)}
                 type="text"
                 placeholder="Country"
               ></input>
@@ -157,7 +132,7 @@ export default function WarehouseAdd() {
               <input
                 className="wha__input"
                 value={contact_name}
-                onChange={handleContact_name}
+                onChange={(e) => setContact_name(e.target.value)}
                 type="text"
                 placeholder="Contact Name"
               ></input>
@@ -169,7 +144,7 @@ export default function WarehouseAdd() {
               <input
                 className="wha__input"
                 value={contact_position}
-                onChange={handleContact_position}
+                onChange={(e) => setContact_position(e.target.value)}
                 type="text"
                 placeholder="Position"
               ></input>
@@ -181,7 +156,7 @@ export default function WarehouseAdd() {
               <input
                 className="wha__input"
                 value={contact_phone}
-                onChange={handleContact_phone}
+                onChange={(e) => setContact_phone(e.target.value)}
                 type="text"
                 placeholder="Phone Number"
               ></input>
@@ -193,7 +168,7 @@ export default function WarehouseAdd() {
               <input
                 className="wha__input"
                 value={contact_email}
-                onChange={handleContact_email}
+                onChange={(e) => setContact_email(e.target.value)}
                 type="text"
                 placeholder="Email"
               ></input>
