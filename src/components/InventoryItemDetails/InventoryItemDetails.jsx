@@ -100,7 +100,7 @@ export default function InventoryItemDetails() {
               <h4 className="detail-title">ITEM DESCRIPTION:</h4>
               <p className="detail-text">{inventoryItem.description}</p>
             </div>
-            <div className="row">
+            <div className="row row--no-padding-tablet">
               <h4 className="detail-title">CATEGORY:</h4>
               <p className="detail-text">{inventoryItem.category}</p>
             </div>
@@ -128,11 +128,10 @@ export default function InventoryItemDetails() {
                 </div>
               </div>
             </div>
-            <div className="row">
+            <div className="row row--no-padding-tablet">
               <h4 className="detail-title">WAREHOUSE:</h4>
               <p className="detail-text">{warehouseName}</p>
             </div>
-            <div className="row"></div>
           </div>
         </section>
       </div>
