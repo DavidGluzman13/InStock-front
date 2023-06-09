@@ -81,10 +81,8 @@ export default function WarehouseAdd() {
     if (!contact_email) {
       setIsContact_email(false);
     }
-    console.log(contact_phone);
+
     let formattedPhone = formatPhone(contact_phone);
-    console.log(formattedPhone);
-    console.log(typeof formattedPhone);
 
     const newWarehouse = {
       warehouse_name,
