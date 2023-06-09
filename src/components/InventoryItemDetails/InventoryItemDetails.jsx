@@ -123,7 +123,7 @@ export default function InventoryItemDetails() {
                   </div>
                 </div>
                 <div className="column">
-                  <h4 className="detail-title">QUANTITIY:</h4>
+                  <h4 className="detail-title">QUANTITY:</h4>
                   <p className="detail-text">{inventoryItem.quantity}</p>
                 </div>
               </div>
