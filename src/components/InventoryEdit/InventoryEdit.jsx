@@ -15,6 +15,7 @@ export default function InventoryEdit() {
   const [isNameValid, setIsNameValid] = useState(true);
   const [isDescriptionValid, setIsDescriptionValid] = useState(true);
   const [isQuantityValid, setIsQuantityValid] = useState(true);
+  const navigate = useNavigate();
 
   const param = useParams();
 
@@ -75,16 +76,16 @@ export default function InventoryEdit() {
 
     if (!name) {
       setIsNameValid(false);
-      return console.log("Invalid input field");
+      return console.log("Invalid name field");
     }
     if (!description) {
       setIsDescriptionValid(false);
-      return console.log("Invalid input field");
+      return console.log("Invalid description field");
     }
 
-    if (!quantity) {
+    if (status === "in stock" && (quantity < 0 || quantity === null)) {
       setIsQuantityValid(false);
-      return console.log("Invalid input field");
+      return console.log("Invalid quantity field");
     }
 
     let tempQuantity;
@@ -120,6 +121,8 @@ export default function InventoryEdit() {
     });
 
     alert("Inventory item has been updated");
+
+    navigate("/inventories");
   };
 
   return (
