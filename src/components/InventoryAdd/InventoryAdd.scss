@@ -1,0 +1,142 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/mixins" as *;
+
+.component-wrapper {
+  // background-color: $color-instock-white;
+  display: flex;
+  justify-content: center;
+}
+
+.input {
+  width: 100%;
+  border: 1px solid $color-instock-cloud;
+  border-radius: 50px;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+
+  &::placeholder {
+    @include p2;
+  }
+}
+
+.add-component {
+  position: absolute;
+  top: 8.5rem;
+  border-radius: 3px;
+  background-color: $color-instock-white;
+  width: 95vw;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+
+  display: flex;
+  flex-direction: column;
+
+  .itm-heading {
+    display: flex;
+    align-items: normal;
+    padding: 1rem 1rem;
+    border-bottom: 2px solid $color-instock-cloud;
+
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    button {
+      align-self: flex-start;
+      padding: 0.5rem 0.5rem 0 0;
+      //the button needs to be alined on mobile with the heading
+    }
+  }
+}
+
+.add-item {
+  // padding: 1rem;
+
+  &__form {
+    // form sass
+  }
+}
+
+.item-detials {
+  padding: 1rem;
+  border-bottom: 2px solid $color-instock-cloud;
+  &__heading {
+    padding-bottom: 1rem;
+  }
+
+  .input--bigger {
+    @extend .input;
+    padding-bottom: 4rem;
+    border-radius: 15px;
+  }
+}
+
+.category-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid $color-instock-cloud;
+  border-radius: 50px;
+
+  .select {
+    @extend .input;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: none;
+    width: 100%;
+    position: relative;
+    margin: 0;
+  }
+  .drop-arrow {
+    position: absolute;
+    right: 1.5rem;
+    pointer-events: none;
+  }
+}
+
+.warehouse_id-wrapper {
+  @extend .category-wrapper;
+  border: 1px solid $color-instock-cloud;
+  border-radius: 50px;
+}
+
+.item-availability {
+  padding: 1rem;
+  &__heading {
+    padding-bottom: 1rem;
+  }
+}
+
+.status-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+
+  &__instock {
+    label {
+      padding-left: 0.5rem;
+    }
+  }
+
+  &__out-of-stock {
+    label {
+      padding-left: 0.5rem;
+    }
+  }
+}
+
+.buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: $color-instock-light-grey;
+}
+
+.add-button {
+  border-radius: 50px;
+  width: 40%;
+  background-color: $color-instock-indigo;
+  color: $color-instock-white;
+}
