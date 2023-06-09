@@ -48,3 +48,11 @@
     line-height: 1.125rem;
   }
 }
+
+// To set a max width and centre the page for pages above desktop
+@mixin desktop-centre {
+  @media screen and (min-width: $desktop-breakpoint) {
+    width: $desktop-breakpoint;
+    margin: 0 auto;
+  }
+}

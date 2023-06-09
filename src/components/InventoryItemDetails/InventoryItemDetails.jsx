@@ -110,7 +110,6 @@ export default function InventoryItemDetails() {
             </div>
             <div className="row"></div>
           </div>
-          <div className="body-end"></div>
         </section>
       </div>
     </div>
