@@ -76,7 +76,7 @@ export default function InventoryList() {
           <ul className="il-component__list">
             <div className="il-component__label-container">
               <div className="il-component__label-left">
-                <div className="il-component__label-mini il-component__mini-container--medium ">
+                <div className="il-component__label-mini il-component__mini-container--large ">
                   <h4>INVENTORY</h4>
                   <img src={sortIcon} alt="Sort Icon" />
                 </div>
@@ -86,15 +86,15 @@ export default function InventoryList() {
                 </div>
               </div>
               <div className="il-component__label-right">
-                <div className="il-component__label-mini il-component__mini-container--large">
+                <div className="il-component__label-mini il-component__mini-container--medium">
                   <h4>STATUS</h4>
                   <img src={sortIcon} alt="Sort Icon" />
                 </div>
-                <div className="il-component__label-mini il-component__mini-container--medium">
+                <div className="il-component__label-mini il-component__mini-container--small">
                   <h4>QUANTITY</h4>
                   <img src={sortIcon} alt="Sort Icon" />
                 </div>
-                <div className="il-component__label-mini il-component__mini-container--large">
+                <div className="il-component__label-mini il-component__mini-container--medium">
                   <h4>WAREHOUSE</h4>
                   <img src={sortIcon} alt="Sort Icon" />
                 </div>
@@ -106,7 +106,7 @@ export default function InventoryList() {
             {inventories.map((inventory) => (
               <li key={inventory.id} className="il-component__item">
                 <div className="il-component__item-container il-component__item-container--left">
-                  <div className="il-component__mini-container il-component__mini-container--text il-component__mini-container--medium">
+                  <div className="il-component__mini-container il-component__mini-container--text il-component__mini-container--large">
                     <h4 className="il-component__label">INVENTORY</h4>
                     <Link
                       to={`/inventories/${inventory.id}`}
@@ -132,15 +132,25 @@ export default function InventoryList() {
                 <div className="il-component__item-container il-component__item-container--right">
                   <div className="il-component__mini-container il-component__mini-container--text il-component__mini-container--medium">
                     <h4 className="il-component__label">STATUS</h4>
-                    <p className="il-component__data">{inventory.status}</p>
+                    <div>
+                      <span
+                        className={`il-component__data ${
+                          inventory.status === "Out of Stock"
+                            ? "il-component__data--tag-red"
+                            : "il-component__data--tag-green"
+                        }`}
+                      >
+                        {inventory.status}
+                      </span>
+                    </div>
                   </div>
-                  <div className="il-component__mini-container il-component__mini-container--text il-component__mini-container--xlarge">
+                  <div className="il-component__mini-container il-component__mini-container--text il-component__mini-container--small">
                     <h4 className="il-component__label">QUANTITY</h4>
                     <div className="il-component__data">
                       <p>{inventory.quantity}</p>
                     </div>
                   </div>
-                  <div className="il-component__mini-container il-component__mini-container--text il-component__mini-container--xlarge">
+                  <div className="il-component__mini-container il-component__mini-container--text il-component__mini-container--medium">
                     <h4 className="il-component__label">WAREHOUSE</h4>
                     <div className="il-component__data">
                       <p>{inventory.warehouse_name}</p>
