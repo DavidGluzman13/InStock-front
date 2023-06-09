@@ -144,10 +144,10 @@ export default function InventoryList() {
                       </span>
                     </div>
                   </div>
-                  <div className="il-component__mini-container il-component__mini-container--text il-component__mini-container--small">
+                  <div className="il-component__mini-container il-component__mini-container--text ">
                     <h4 className="il-component__label">QUANTITY</h4>
                     <div className="il-component__data">
-                      <p>{inventory.quantity}</p>
+                      <p className="test">{inventory.quantity}</p>
                     </div>
                   </div>
                   <div className="il-component__mini-container il-component__mini-container--text il-component__mini-container--medium">
