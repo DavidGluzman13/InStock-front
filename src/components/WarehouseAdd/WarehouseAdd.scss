@@ -4,6 +4,12 @@
 .wha-wrapper {
   display: flex;
   justify-content: center;
+  @include desktop {
+    @media screen and (min-width: $desktop-breakpoint) {
+      width: $desktop-breakpoint;
+      margin: 0 auto;
+    }
+  }
 }
 .wha {
   padding-top: 2rem;
@@ -22,6 +28,7 @@
   @include desktop {
     width: 85vw;
   }
+  
 
   &__header {
     display: flex;
@@ -35,11 +42,15 @@
     }
     &--title {
       color: $color-instock-black;
-      font-size: 1.55rem;
-      line-height: 2.25rem;
+      font-size: 1.35rem;
       font-weight: 700;
       @include tablet {
-        font-size: 2rem;
+        font-size: 1.75rem;
+        padding-bottom: 0.3rem;
+      }
+      @include desktop {
+        font-size: 1.85rem;
+        padding-top: 0.4rem;
       }
     }
     @include tablet {
@@ -49,7 +60,7 @@
   }
 
   &__form {
-    // whole form
+    // whole form under header border
     @include tablet {
       display: flex;
       flex-direction: row;
@@ -60,17 +71,18 @@
 
   &__section {
     // 2 main sections
-    @include tablet {
-      width: 50%;
-      margin: 1rem 0;
-      border-bottom: none;
-    }
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding-bottom: 1rem;
     border-bottom: 1px solid $color-instock-cloud;
+    @include tablet {
+      width: 50%;
+      margin: 0.5rem 0;
+      border-bottom: none;
+      padding: 0 1rem;
+    }
     &--divider {
       @include tablet {
         border-right: 1px solid $color-instock-cloud;
@@ -81,7 +93,11 @@
   &__subh {
     // only h2
     width: 100%;
-    padding: 1rem;
+    padding: 1rem 1rem 1.375rem 1rem;
+    @include tablet {
+      font-size: 1.45rem;
+      padding: 1rem 1rem 2rem 1rem;
+    }
   }
 
   &__field {
@@ -91,6 +107,9 @@
     align-items: center;
     flex-wrap: wrap;
     width: 100%;
+    @include tablet {
+      padding-bottom: 0.75rem;
+    }
   }
   &__label {
     font-weight: 600;
@@ -99,6 +118,9 @@
     margin-bottom: 0.25rem;
     width: 100%;
     margin: 0 1rem;
+    @include tablet {
+      padding: 0 0 0.25rem 0;
+    }
   }
 
   &__input {
