@@ -40,13 +40,39 @@ export default function InventoryItemDetails() {
             setWarehouseName(response.data.warehouse_name);
           });
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        if (error.response.status === 404) {
+          console.log(error.response.status);
+
+          setInventoryItem({ item_name: "Item not found" });
+          setWarehouseName("");
+        }
+      });
   }, [id]);
 
   if (inventoryItem === null || warehouseName === null) {
     return <div>Loading...</div>;
   } else {
     document.title = `InStock - Inventory Item Detail - ${inventoryItem.item_name}`;
+  }
+
+  if (inventoryItem.item_name === "Item not found") {
+    return (
+      <div className="itd-component-wrapper">
+        <div className="itd-component">
+          <section className="itd-component__header">
+            <div className="header-start">
+              <a className="back-link" onClick={navigateBack}>
+                <img src={backButton} alt="back button" />
+              </a>
+              <h1 className="itd-component__title">
+                {inventoryItem.item_name}
+              </h1>
+            </div>
+          </section>
+        </div>
+      </div>
+    );
   }
 
   return (
