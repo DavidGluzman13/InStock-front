@@ -10,11 +10,15 @@ export default function InventoryItemDetails() {
   const url = "http://localhost:8080/api/inventories/";
   const { id } = useParams();
   const [inventoryItem, setInventoryItem] = useState(null);
+  const [warehouseName, setWarehouseName] = useState(null);
+
+  const cl = (className) => `className=${className}`;
 
   const navigateBack = (event) => {
     event.preventDefault();
     navigate(-1);
   };
+
   const navigateToEdit = (event) => {
     event.preventDefault();
     navigate(`/inventories/${id}/edit`);
@@ -25,11 +29,21 @@ export default function InventoryItemDetails() {
       .get(url + id)
       .then((response) => {
         setInventoryItem(response.data);
+        return response.data;
+      })
+      .then((inventoryItem) => {
+        axios
+          .get(
+            `http://localhost:8080/api/warehouses/${inventoryItem.warehouse_id}`
+          )
+          .then((response) => {
+            setWarehouseName(response.data.warehouse_name);
+          });
       })
       .catch((error) => console.log(error));
   }, [id]);
 
-  if (inventoryItem === null) {
+  if (inventoryItem === null || warehouseName === null) {
     return <div>Loading...</div>;
   } else {
     document.title = `InStock - Inventory Item Detail - ${inventoryItem.item_name}`;
@@ -59,9 +73,42 @@ export default function InventoryItemDetails() {
         <section className="itd-component__body">
           <div className="body-start">
             <div className="row">
-              <h4>ITEM DESCRIPTION:</h4>
-              <p className="item-description">{inventoryItem.description}</p>
+              <h4 className="detail-title">ITEM DESCRIPTION:</h4>
+              <p className="detail-text">{inventoryItem.description}</p>
             </div>
+            <div className="row">
+              <h4 className="detail-title">CATEGORY:</h4>
+              <p className="detail-text">{inventoryItem.category}</p>
+            </div>
+          </div>
+          <div className="body-end">
+            <div className="row">
+              <div className="columns">
+                <div className="column">
+                  <h4 className="detail-title">STATUS:</h4>
+                  <div className="tag-wrapper">
+                    <span
+                      className={`detail-text ${
+                        inventoryItem.status === "Out of Stock"
+                          ? "detail-text--tag-red"
+                          : "detail-text--tag-green"
+                      }`}
+                    >
+                      {inventoryItem.status.toUpperCase()}
+                    </span>
+                  </div>
+                </div>
+                <div className="column">
+                  <h4 className="detail-title">QUANTITIY:</h4>
+                  <p className="detail-text">{inventoryItem.quantity}</p>
+                </div>
+              </div>
+            </div>
+            <div className="row">
+              <h4 className="detail-title">WAREHOUSE:</h4>
+              <p className="detail-text">{warehouseName}</p>
+            </div>
+            <div className="row"></div>
           </div>
           <div className="body-end"></div>
         </section>
