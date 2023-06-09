@@ -139,6 +139,19 @@
   }
 }
 
+.error {
+  color: red;
+  font-size: 0.75rem;
+  width: 90%;
+  display: flex;
+  justify-content: start;
+  padding: -1rem;
+  margin: -1rem -1rem 0 -1rem;
+  &__icon {
+    width: 0.75rem;
+  }
+}
+
 .wha-button {
   display: flex;
   justify-content: center;
@@ -180,4 +193,3 @@
     }
   }
 }
-
