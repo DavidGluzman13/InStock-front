@@ -10,65 +10,89 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 export default function InventoryList() {
-  const [warehouses, setInventories] = useState(null);
-  const [selectedWarehouse, setSelectedWarehouse] = useState(null);
+  const [inventories, setInventories] = useState(null);
+  const [selectedInventory, setSelectedInventory] = useState(null);
   const [showModal, setShowModal] = useState(false);
+  const [isWarehousesRetrieved, setIsWarehousesRetrieved] = useState(false);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8080/api/warehouses")
-      .then((response) => setWarehouses(response.data));
+    // get the inventories
+    let inventoriesWithWarehouseName = [];
+    axios.get("http://localhost:8080/api/inventories").then((response) => {
+      const inventoriesFromResponse = response.data;
+      // map through the inventories and add a new attribute to each object called warehouse_name
+      // which is the name from an api call to /warehouses/:id
+      inventoriesFromResponse.forEach((inv) => {
+        axios
+          .get(`http://localhost:8080/api/warehouses/${inv.warehouse_id}`)
+          .then((response) => {
+            inv.warehouse_name = response.data.warehouse_name;
+            console.log(inv);
+
+            // return inv;
+          });
+        // return inv;
+      });
+
+      setInventories(inventoriesFromResponse);
+    });
   }, []);
 
-  if (!warehouses) {
+  // const getWarehouseName = async (inv) => {
+  //   const warehouse = await axios.get(
+  //     `http://localhost:8080/api/warehouses/${inv.warehouse_id}`
+  //   );
+  //   return warehouse.warehouse_name;
+  // };
+
+  if (!inventories) {
     return <h1>Loading..</h1>;
   }
 
   const handleDelete = () => {
-    if (selectedWarehouse) {
+    if (selectedInventory) {
       axios
-        .delete(`http://localhost:8080/api/warehouses/${selectedWarehouse.id}`)
+        .delete(`http://localhost:8080/api/inventories/${selectedInventory.id}`)
         .then((response) => {
-          console.log("Warehouse deleted");
+          console.log("Inventory deleted");
           axios
-            .get("http://localhost:8080/api/warehouses")
-            .then((response) => setWarehouses(response.data));
+            .get("http://localhost:8080/api/inventories")
+            .then((response) => setInventories(response.data));
 
           setShowModal(false);
-          setSelectedWarehouse(null);
+          setSelectedInventory(null);
         })
         .catch((error) => {
-          console.error("Error deleting warehouse:", error);
+          console.error("Error deleting inventory:", error);
           setShowModal(false);
-          setSelectedWarehouse(null);
+          setSelectedInventory(null);
         });
-      console.log("I m here");
     }
   };
 
-  const openModal = (warehouse) => {
-    setSelectedWarehouse(warehouse);
+  const openModal = (inventory) => {
+    setSelectedInventory(inventory);
     setShowModal(true);
   };
 
   const closeModal = () => {
     setShowModal(false);
-    setSelectedWarehouse(null);
+    setSelectedInventory(null);
   };
 
   return (
     <div className="il-component-wrapper">
       <section className="il-component">
         <div className="il-component__header">
-          <h1 className="il-component__title h1">Warehouses</h1>
+          <h1 className="il-component__title h1">Inventories</h1>
           <div className="il-component__header-container">
             <input
               className="il-component__header-input"
               type="text"
               placeholder="Search..."
             />
-            <Link to="/warehouses/add" className="il-component__header-button">
-              + Add New Warehouse
+            <Link to="/inventories/add" className="il-component__header-button">
+              + Add New Inventory
             </Link>
           </div>
         </div>
@@ -77,21 +101,25 @@ export default function InventoryList() {
             <div className="il-component__label-container">
               <div className="il-component__label-left">
                 <div className="il-component__label-mini il-component__mini-container--medium ">
-                  <h4>WAREHOUSE</h4>
+                  <h4>INVENTORY</h4>
                   <img src={sortIcon} alt="Sort Icon" />
                 </div>
                 <div className="il-component__label-mini il-component__mini-container--large">
-                  <h4>ADDRESS</h4>
+                  <h4>CATEGORY</h4>
                   <img src={sortIcon} alt="Sort Icon" />
                 </div>
               </div>
               <div className="il-component__label-right">
-                <div className="il-component__label-mini il-component__mini-container--medium">
-                  <h4>CONTACT NAME</h4>
+                <div className="il-component__label-mini il-component__mini-container--large">
+                  <h4>STATUS</h4>
                   <img src={sortIcon} alt="Sort Icon" />
                 </div>
-                <div className="il-component__label-mini il-component__mini-container--xlarge">
-                  <h4>CONTACT INFORMATION</h4>
+                <div className="il-component__label-mini il-component__mini-container--medium">
+                  <h4>QUANTITY</h4>
+                  <img src={sortIcon} alt="Sort Icon" />
+                </div>
+                <div className="il-component__label-mini il-component__mini-container--large">
+                  <h4>WAREHOUSE</h4>
                   <img src={sortIcon} alt="Sort Icon" />
                 </div>
               </div>
@@ -99,46 +127,47 @@ export default function InventoryList() {
                 <h4>ACTIONS</h4>
               </div>
             </div>
-            {warehouses.map((warehouse) => (
-              <li key={warehouse.id} className="il-component__item">
+            {inventories.map((inventory) => (
+              <li key={inventory.id} className="il-component__item">
                 <div className="il-component__item-container il-component__item-container--left">
                   <div className="il-component__mini-container il-component__mini-container--text il-component__mini-container--medium">
-                    <h4 className="il-component__label">WAREHOUSE</h4>
+                    <h4 className="il-component__label">INVENTORY</h4>
                     <Link
-                      to={`/warehouses/${warehouse.id}`}
+                      to={`/inventories/${inventory.id}`}
                       className="il-component__data--arrow"
                     >
-                      {warehouse.warehouse_name}
+                      {inventory.item_name}
                       <img src={arrowIcon} alt="Arrow Icon" />
                     </Link>
                   </div>
                   <div className="il-component__mini-container il-component__mini-container--text il-component__mini-container--large">
-                    <h4 className="il-component__label">ADDRESS</h4>
-                    <p className="il-component__data">
-                      {warehouse.address}, {warehouse.city}, {warehouse.country}
-                    </p>
+                    <h4 className="il-component__label">CATEGORY</h4>
+                    <p className="il-component__data">{inventory.category}</p>
                   </div>
                   <div className="il-component__mini-container il-component__mini-container--delete">
                     <img
                       className="il-component__delete il-component__delete--mobile"
                       src={deleteIcon}
                       alt="Delete icon"
-                      onClick={() => openModal(warehouse)}
+                      onClick={() => openModal(inventory)}
                     />
                   </div>
                 </div>
                 <div className="il-component__item-container il-component__item-container--right">
                   <div className="il-component__mini-container il-component__mini-container--text il-component__mini-container--medium">
-                    <h4 className="il-component__label">CONTACT NAME</h4>
-                    <p className="il-component__data">
-                      {warehouse.contact_name}
-                    </p>
+                    <h4 className="il-component__label">STATUS</h4>
+                    <p className="il-component__data">{inventory.status}</p>
                   </div>
                   <div className="il-component__mini-container il-component__mini-container--text il-component__mini-container--xlarge">
-                    <h4 className="il-component__label">CONTACT INFORMATION</h4>
+                    <h4 className="il-component__label">QUANTITY</h4>
                     <div className="il-component__data">
-                      <p>{warehouse.contact_phone}</p>
-                      <p>{warehouse.contact_email}</p>
+                      <p>{inventory.quantity}</p>
+                    </div>
+                  </div>
+                  <div className="il-component__mini-container il-component__mini-container--text il-component__mini-container--xlarge">
+                    <h4 className="il-component__label">WAREHOUSE</h4>
+                    <div className="il-component__data">
+                      <p>{inventory.warehouse_name}</p>
                     </div>
                   </div>
                   <div className="il-component__mini-container il-component__mini-container--edit">
@@ -153,7 +182,7 @@ export default function InventoryList() {
                   <img
                     className="il-component__delete "
                     src={deleteIcon}
-                    onClick={() => openModal(warehouse)}
+                    onClick={() => openModal(inventory)}
                     alt="Delete icon"
                   />
                   <img
@@ -168,8 +197,8 @@ export default function InventoryList() {
         </div>
       </section>
 
-      {showModal && selectedWarehouse && (
-        <Modal title={selectedWarehouse.warehouse_name} onClose={closeModal}>
+      {showModal && selectedInventory && (
+        <Modal title={selectedInventory.item_name} onClose={closeModal}>
           <div className="modal__buttons">
             <button
               className="modal__btn modal__btn--cancel"
