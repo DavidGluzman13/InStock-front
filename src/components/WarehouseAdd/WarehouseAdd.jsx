@@ -26,25 +26,19 @@ export default function WarehouseAdd() {
   const [isContact_email, setIsContact_email] = useState(true);
 
   function formatPhone(number) {
-    if (number.slice(0, 1) !== "+") {
-      return (
-        "+" +
-        number.slice(0, 1) +
-        " (" +
-        number.slice(1, 4) +
-        ") " +
-        number.slice(4, 7) +
-        "-" +
-        number.slice(7, 11)
-      );
-    }
-    return number;
+    return (
+      "+1 (" +
+      number.slice(0, 3) +
+      ") " +
+      number.slice(3, 6) +
+      "-" +
+      number.slice(6, 10)
+    );
   }
 
   const handleSubmit = (event) => {
     setError(false);
     event.preventDefault();
-    setContact_phone(formatPhone(contact_phone));
 
     let warehouse = [
       warehouse_name,
@@ -87,6 +81,10 @@ export default function WarehouseAdd() {
     if (!contact_email) {
       setIsContact_email(false);
     }
+    console.log(contact_phone);
+    let formattedPhone = formatPhone(contact_phone);
+    console.log(formattedPhone);
+    console.log(typeof formattedPhone);
 
     const newWarehouse = {
       warehouse_name,
@@ -95,10 +93,11 @@ export default function WarehouseAdd() {
       country,
       contact_name,
       contact_position,
-      contact_phone,
+      formattedPhone,
       contact_email,
     };
 
+    console.log(newWarehouse);
     axios
       .post("http://localhost:8080/api/warehouses/", newWarehouse)
       .then((response) => {
@@ -314,7 +313,7 @@ export default function WarehouseAdd() {
                 type="text"
                 placeholder="Phone Number"
               ></input>
-              {error && contact_phone.length !== 17 ? (
+              {error && contact_phone.length !== 10 ? (
                 <label className="error">
                   <img className="error__icon" src={errorIcon} />
                   Please enter a valid phone number
