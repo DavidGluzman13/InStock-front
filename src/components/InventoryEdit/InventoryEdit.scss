@@ -35,6 +35,10 @@
   &__title {
     color: $color-instock-black;
     font-size: 1.75rem;
+
+    @include tablet {
+      font-size: 2rem;
+    }
   }
 
   &__details,
@@ -54,6 +58,10 @@
   &__form-container {
     display: flex;
     justify-content: space-between;
+
+    @include tablet {
+      padding: 1rem 0;
+    }
   }
 
   &__label {
@@ -77,6 +85,10 @@
     &--textarea {
       resize: none;
       height: 7.5rem;
+    }
+
+    @include tablet {
+      padding: 8px 1rem;
     }
   }
 
@@ -161,6 +173,17 @@
     }
   }
 
+  &__divide {
+    display: none;
+    @include tablet {
+      display: block;
+      width: 1px;
+      height: 26.625rem;
+      background-color: $color-instock-cloud;
+      margin-top: 1.5rem;
+    }
+  }
+
   input[type="radio"] {
     outline: none;
     border: none;
@@ -170,5 +193,9 @@
 
   input[type="radio"]:not(:checked) + label {
     color: $color-instock-slate;
+  }
+
+  &__invalid-field {
+    outline: 2px solid $color-instock-red;
   }
 }

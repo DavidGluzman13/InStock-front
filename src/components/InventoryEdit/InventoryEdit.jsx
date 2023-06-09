@@ -12,7 +12,10 @@ export default function InventoryEdit() {
   const [showQuantity, setShowQuantity] = useState(false);
   const [quantity, setQuantity] = useState(0);
   const [warehouse, setWarehouse] = useState("");
-  const [isInvalid, setIsInvalid] = useState(true);
+  const [isNameValid, setIsNameValid] = useState(true);
+  const [isDescriptionValid, setIsDescriptionValid] = useState(true);
+  const [isQuantityValid, setIsQuantityValid] = useState(true);
+
   const param = useParams();
 
   const warehouses = [
@@ -43,7 +46,7 @@ export default function InventoryEdit() {
         setQuantity(tempQuantity);
         setCategory(response.data.category);
         tempQuantity === 0 ? setShowQuantity(false) : setShowQuantity(true);
-        tempQuantity === 0 ? setStatus("Out of Stock") : setStatus("In Stock");
+        tempQuantity === 0 ? setStatus("out of stock") : setStatus("in stock");
       });
   }, []);
 
@@ -71,18 +74,42 @@ export default function InventoryEdit() {
     e.preventDefault();
 
     if (!name) {
+      setIsNameValid(false);
+      return console.log("Invalid input field");
     }
+    if (!description) {
+      setIsDescriptionValid(false);
+      return console.log("Invalid input field");
+    }
+
+    if (!quantity) {
+      setIsQuantityValid(false);
+      return console.log("Invalid input field");
+    }
+
     let tempQuantity;
     let tempStatus;
-    if (status === "Out of Stock") {
+    if (status === "out of stock") {
       tempQuantity = 0;
+      tempStatus = "Out of Stock";
       setQuantity(tempQuantity);
+      setStatus(tempStatus);
     } else {
       tempQuantity = quantity;
+      tempStatus = "In Stock";
+      setStatus(tempStatus);
     }
 
     const warehouseId = warehouses.indexOf(warehouse) + 1;
 
+    console.log(`
+      Item name : ${name},
+      Item: ${description},
+      Category: ${category},
+      Status: ${tempStatus},
+      Quantity: ${tempQuantity},
+      WarehouseId: ${warehouseId + 1}
+    `);
     axios.put(`http://localhost:8080/api/inventories/${param.id}`, {
       warehouse_id: warehouseId,
       item_name: name,
@@ -91,15 +118,6 @@ export default function InventoryEdit() {
       status: tempStatus,
       quantity: tempQuantity,
     });
-
-    console.log(`
-      Item name : ${name},
-      Item: ${description},
-      Category: ${category},
-      Status: ${status},
-      Quantity: ${tempQuantity},
-      WarehouseId: ${warehouseId + 1}
-    `);
   };
 
   return (
@@ -123,7 +141,9 @@ export default function InventoryEdit() {
                       name="name"
                       id="name"
                       type="text"
-                      className="inv-edit__input"
+                      className={`inv-edit__input ${
+                        isNameValid ? "" : "inv-edit__invalid-field"
+                      }`}
                       value={name}
                       onChange={handleNameChange}
                     />
@@ -136,7 +156,9 @@ export default function InventoryEdit() {
                       name="description"
                       id="description"
                       type="text"
-                      className="inv-edit__input inv-edit__input--textarea"
+                      className={`inv-edit__input inv-edit__input--textarea ${
+                        isDescriptionValid ? "" : "inv-edit__invalid-field"
+                      }`}
                       value={description}
                       onChange={handleDescriptionChange}
                     />
@@ -159,6 +181,7 @@ export default function InventoryEdit() {
                 </div>
               </div>
               <hr className="inv-edit__divider" />
+              <div className="inv-edit__divide"></div>
               <div className="inv-edit__availability">
                 <h2 className="inv-edit__subtitle">Item Availabiltiy</h2>
                 <div className="inv-edit__field-container">
@@ -171,9 +194,9 @@ export default function InventoryEdit() {
                           id="inStock"
                           name="status"
                           value="in stock"
-                          checked={status === "In Stock"}
+                          checked={status === "in stock"}
                           onChange={() => {
-                            setStatus("In Stock");
+                            setStatus("in stock");
                             setShowQuantity(true);
                           }}
                         />
@@ -190,9 +213,9 @@ export default function InventoryEdit() {
                           id="outStock"
                           name="status"
                           value="out of stock"
-                          checked={status === "Out of Stock"}
+                          checked={status === "out of stock"}
                           onChange={() => {
-                            setStatus("Out Of Stock");
+                            setStatus("out of stock");
                             setShowQuantity(false);
                           }}
                         />
@@ -215,7 +238,9 @@ export default function InventoryEdit() {
                         name="quantity"
                         id="quantity"
                         type="number"
-                        className="inv-edit__input"
+                        className={`inv-edit__input  ${
+                          isQuantityValid ? "" : "inv-edit__invalid-field"
+                        }`}
                         value={quantity}
                         onChange={handleQuantityChange}
                       />
