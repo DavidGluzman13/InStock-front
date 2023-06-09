@@ -192,6 +192,7 @@
     }
 
     &--delete {
+      margin-top: 3rem;
       @include tablet {
         display: none;
       }

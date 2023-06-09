@@ -16,34 +16,10 @@ export default function InventoryList() {
   const [isWarehousesRetrieved, setIsWarehousesRetrieved] = useState(false);
 
   useEffect(() => {
-    // get the inventories
-    let inventoriesWithWarehouseName = [];
     axios.get("http://localhost:8080/api/inventories").then((response) => {
-      const inventoriesFromResponse = response.data;
-      // map through the inventories and add a new attribute to each object called warehouse_name
-      // which is the name from an api call to /warehouses/:id
-      inventoriesFromResponse.forEach((inv) => {
-        axios
-          .get(`http://localhost:8080/api/warehouses/${inv.warehouse_id}`)
-          .then((response) => {
-            inv.warehouse_name = response.data.warehouse_name;
-            console.log(inv);
-
-            // return inv;
-          });
-        // return inv;
-      });
-
-      setInventories(inventoriesFromResponse);
+      setInventories(response.data);
     });
   }, []);
-
-  // const getWarehouseName = async (inv) => {
-  //   const warehouse = await axios.get(
-  //     `http://localhost:8080/api/warehouses/${inv.warehouse_id}`
-  //   );
-  //   return warehouse.warehouse_name;
-  // };
 
   if (!inventories) {
     return <h1>Loading..</h1>;
