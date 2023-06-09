@@ -89,106 +89,39 @@ export default function InventoryAdd() {
               method="POST"
               className="add-item__form"
             >
-              <div className="item-detials">
-                <h2 className="item-detials__heading">Item Detials</h2>
-                <h3>Item Name</h3>
-                <input
-                  name="nameItem"
-                  className="input"
-                  placeholder="Add a name of item"
-                  onChange={handleItem_name}
-                  value={item_name}
-                />
-                <h3>Description</h3>
-                <input
-                  name="description"
-                  className="input--bigger"
-                  placeholder="Add item description"
-                  onChange={handleDescription}
-                  value={description}
-                />
-                <h3>category</h3>
-                <div className="category-wrapper">
-                  <select
-                    name="category"
-                    className="select"
-                    placeholder="Please select"
-                    onChange={handleCategory}
-                    value={category}
-                  >
-                    <option value="Accessories">Accessories</option>
-                    <option value="Apparel">Apparel</option>
-                    <option selected value="Electronics">
-                      Electronics
-                    </option>
-                    <option value="Gear">Gear</option>
-                    <option value="Health">Health</option>
-                  </select>
-                  <img
-                    className="drop-arrow"
-                    src={dropDownArrow}
-                    alt="drop down arrow"
-                  />
-                </div>
-              </div>
-              {/* -----------------form 2--------------- */}
-              <div className="item-availability">
-                <h2 className="item-availability__heading">
-                  Item Availability
-                </h2>
-                <div className="status">
-                  <h3>Status</h3>
-                  <div className="status-wrapper">
-                    <div className="status-wrapper__instock">
-                      <input
-                        className="radio-button"
-                        type="radio"
-                        checked={status === "In Stock"}
-                        onChange={() => handleRadioButton(1)}
-                      />
-                      <label>In Stock</label>
-                    </div>
-                    <div className="status-wrapper__out-of-stock">
-                      <input
-                        className="radio-button"
-                        type="radio"
-                        checked={status === "Out of Stock"}
-                        onChange={() => handleRadioButton(0)}
-                      />
-                      <label>Out of Stock</label>
-                    </div>
-                  </div>
-                </div>
-                <div className="quantity">
-                  <h3>Quantity</h3>
+              <div className="content-wrapper">
+                <div className="item-detials">
+                  <h2 className="item-detials__heading">Item Detials</h2>
+                  <h3>Item Name</h3>
                   <input
-                    name="quantity"
+                    name="nameItem"
                     className="input"
-                    placeholder="0"
-                    type="number"
-                    onChange={handleQuantity}
-                    value={quantity}
+                    placeholder="Add a name of item"
+                    onChange={handleItem_name}
+                    value={item_name}
                   />
-                </div>
-                <div className="warehouse">
-                  <h3>Warehouse</h3>
-                  <div className="warehouse_id-wrapper">
+                  <h3>Description</h3>
+                  <input
+                    name="description"
+                    className="input--bigger"
+                    placeholder="Add item description"
+                    onChange={handleDescription}
+                    value={description}
+                  />
+                  <h3>Category</h3>
+                  <div className="category-wrapper">
                     <select
-                      name="warehouse_id"
+                      name="category"
                       className="select"
                       placeholder="Please select"
-                      onChange={handleWarehouse_id}
-                      value={warehouse_id}
+                      onChange={handleCategory}
+                      value={category}
                     >
-                      <option value="1">Manhattan</option>
-                      <option value="2">Washington</option>
-                      <option selected value="3">
-                        Jersey
-                      </option>
-                      <option value="4">Santa Monica</option>
-                      <option value="5">Seattle</option>
-                      <option value="6">Miami</option>
-                      <option value="7">Boston</option>
+                      <option value="Accessories">Accessories</option>
+                      <option value="Apparel">Apparel</option>
+                      <option value="Electronics">Electronics</option>
+                      <option value="Gear">Gear</option>
+                      <option value="Health">Health</option>
                     </select>
                     <img
                       className="drop-arrow"
@@ -197,9 +130,74 @@ export default function InventoryAdd() {
                     />
                   </div>
                 </div>
+                {/* -----------------form 2--------------- */}
+                <div className="item-availability">
+                  <h2 className="item-availability__heading">
+                    Item Availability
+                  </h2>
+                  <div className="status">
+                    <h3>Status</h3>
+                    <div className="status-wrapper">
+                      <div className="status-wrapper__instock">
+                        <input
+                          className="radio-button"
+                          type="radio"
+                          checked={status === "In Stock"}
+                          onChange={() => handleRadioButton(1)}
+                        />
+                        <label>In Stock</label>
+                      </div>
+                      <div className="status-wrapper__out-of-stock">
+                        <input
+                          className="radio-button"
+                          type="radio"
+                          checked={status === "Out of Stock"}
+                          onChange={() => handleRadioButton(0)}
+                        />
+                        <label>Out of Stock</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="quantity">
+                    <h3>Quantity</h3>
+                    <input
+                      name="quantity"
+                      className="input"
+                      placeholder="0"
+                      type="number"
+                      onChange={handleQuantity}
+                      value={quantity}
+                    />
+                  </div>
+                  <div className="warehouse">
+                    <h3>Warehouse</h3>
+                    <div className="warehouse_id-wrapper">
+                      <select
+                        name="warehouse_id"
+                        className="select"
+                        placeholder="Please select"
+                        onChange={handleWarehouse_id}
+                        value={warehouse_id}
+                      >
+                        <option value="1">Manhattan</option>
+                        <option value="2">Washington</option>
+                        <option value="3">Jersey</option>
+                        <option value="4">Santa Monica</option>
+                        <option value="5">Seattle</option>
+                        <option value="6">Miami</option>
+                        <option value="7">Boston</option>
+                      </select>
+                      <img
+                        className="drop-arrow"
+                        src={dropDownArrow}
+                        alt="drop down arrow"
+                      />
+                    </div>
+                  </div>
+                </div>
               </div>
               <div className="buttons">
-                <button onClick={alertCancel} className="button">
+                <button onClick={alertCancel} className="cancel-button">
                   Cancel
                 </button>
                 <button type="submit" className="add-button">
