@@ -168,10 +168,28 @@ export default function InventoryEdit() {
                       onChange={handleDescriptionChange}
                     />
                   </div>
+
                   <div className="inv-edit__field ">
                     <label className="inv-edit__label">Category</label>
-
-                    <select
+                    <div className="category-wrapper">
+                      <select
+                        className="select inv-edit__input"
+                        value={category}
+                        onChange={handleCategoryChange}
+                      >
+                        <option value="Electronics">Electronics</option>
+                        <option value="Gear">Gear</option>
+                        <option value="Apparel">Apparel</option>
+                        <option value="Accessories">Accessories</option>
+                        <option value="Health">Health</option>
+                      </select>
+                      <img
+                        className="drop-arrow"
+                        src={dropIcon}
+                        alt="drop down arrow"
+                      />
+                    </div>
+                    {/* <select
                       className="inv-edit__input"
                       value={category}
                       onChange={handleCategoryChange}
@@ -181,7 +199,7 @@ export default function InventoryEdit() {
                       <option value="Apparel">Apparel</option>
                       <option value="Accessories">Accessories</option>
                       <option value="Health">Health</option>
-                    </select>
+                    </select> */}
                   </div>
                 </div>
               </div>

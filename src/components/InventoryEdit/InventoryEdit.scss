@@ -204,3 +204,33 @@
     outline: 2px solid $color-instock-red;
   }
 }
+
+.category-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid $color-instock-cloud;
+  border-radius: 50px;
+
+  .select {
+    @extend .inv-edit__field;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: none;
+    width: 100%;
+    position: relative;
+    margin: 0;
+  }
+  .drop-arrow {
+    position: absolute;
+    right: 1.5rem;
+    pointer-events: none;
+  }
+}
+
+.warehouse_id-wrapper {
+  @extend .category-wrapper;
+  border: 1px solid $color-instock-cloud;
+  border-radius: 50px;
+}
