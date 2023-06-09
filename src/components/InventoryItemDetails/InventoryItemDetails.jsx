@@ -42,8 +42,6 @@ export default function InventoryItemDetails() {
       })
       .catch((error) => {
         if (error.response.status === 404) {
-          console.log(error.response.status);
-
           setInventoryItem({ item_name: "Item not found" });
           setWarehouseName("");
         }
