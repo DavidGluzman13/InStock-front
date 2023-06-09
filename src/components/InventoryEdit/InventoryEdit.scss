@@ -92,6 +92,15 @@
       }
     }
 
+    &--select {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      border: none;
+      width: 100%;
+      cursor: pointer;
+      margin: 0;
+    }
+
     @include tablet {
       padding: 8px 1rem;
     }
@@ -203,34 +212,20 @@
   &__invalid-field {
     outline: 2px solid $color-instock-red;
   }
-}
 
-.category-wrapper {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border: 1px solid $color-instock-cloud;
-  border-radius: 50px;
-
-  .select {
-    @extend .inv-edit__field;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    border: none;
-    width: 100%;
-    position: relative;
-    margin: 0;
-  }
-  .drop-arrow {
+  &__drop-arrow {
     position: absolute;
-    right: 1.5rem;
+    right: 0.2rem;
     pointer-events: none;
   }
-}
 
-.warehouse_id-wrapper {
-  @extend .category-wrapper;
-  border: 1px solid $color-instock-cloud;
-  border-radius: 50px;
+  &__select-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid $color-instock-cloud;
+    border-radius: 50px;
+    position: relative;
+  }
 }

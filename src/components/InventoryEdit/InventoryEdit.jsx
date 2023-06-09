@@ -171,9 +171,9 @@ export default function InventoryEdit() {
 
                   <div className="inv-edit__field ">
                     <label className="inv-edit__label">Category</label>
-                    <div className="category-wrapper">
+                    <div className="inv-edit__select-wrapper">
                       <select
-                        className="select inv-edit__input"
+                        className="inv-edit__input--select inv-edit__input"
                         value={category}
                         onChange={handleCategoryChange}
                       >
@@ -184,22 +184,11 @@ export default function InventoryEdit() {
                         <option value="Health">Health</option>
                       </select>
                       <img
-                        className="drop-arrow"
+                        className="inv-edit__drop-arrow"
                         src={dropIcon}
                         alt="drop down arrow"
                       />
                     </div>
-                    {/* <select
-                      className="inv-edit__input"
-                      value={category}
-                      onChange={handleCategoryChange}
-                    >
-                      <option value="Electronics">Electronics</option>
-                      <option value="Gear">Gear</option>
-                      <option value="Apparel">Apparel</option>
-                      <option value="Accessories">Accessories</option>
-                      <option value="Health">Health</option>
-                    </select> */}
                   </div>
                 </div>
               </div>
@@ -274,21 +263,27 @@ export default function InventoryEdit() {
                     <label className="inv-edit__label" htmlFor="warehouse">
                       Warehouse
                     </label>
-                    <select
-                      id="warehouse"
-                      className="inv-edit__input"
-                      value={warehouse}
-                      onChange={handleWarehouseChange}
-                    >
-                      <option value="Manhattan">Manhattan</option>
-                      <option value="Washington">Washington</option>
-                      <option value="Jersey">Jersey</option>
-                      <option value="SF">SF</option>
-                      <option value="SantaMonica">Santa Monica</option>
-                      <option value="Seattle">Seattle</option>
-                      <option value="Miami">Miami</option>
-                      <option value="Boston">Boston</option>
-                    </select>
+                    <div className="inv-edit__select-wrapper">
+                      <select
+                        className="inv-edit__input inv-edit__input--select"
+                        value={warehouse}
+                        onChange={handleWarehouseChange}
+                      >
+                        <option value="Manhattan">Manhattan</option>
+                        <option value="Washington">Washington</option>
+                        <option value="Jersey">Jersey</option>
+                        <option value="SF">SF</option>
+                        <option value="SantaMonica">Santa Monica</option>
+                        <option value="Seattle">Seattle</option>
+                        <option value="Miami">Miami</option>
+                        <option value="Boston">Boston</option>
+                      </select>
+                      <img
+                        className="inv-edit__drop-arrow"
+                        src={dropIcon}
+                        alt="drop down arrow"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
