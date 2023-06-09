@@ -49,9 +49,11 @@
       }
     }
     &__body {
-      padding: 0rem 2rem 2rem 2rem;
+      //   padding: 0rem 2rem 2rem 2rem;
+      padding-bottom: 1rem;
       .body-start,
       .body-end {
+        padding: 0 2rem;
         .tag-wrapper {
           margin-top: 0.25rem;
         }
