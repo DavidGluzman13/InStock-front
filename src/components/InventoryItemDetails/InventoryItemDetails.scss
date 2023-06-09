@@ -1,0 +1,115 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.itd-component-wrapper {
+  position: absolute;
+  top: 8.5rem;
+  @include tablet {
+    top: 5.55rem;
+  }
+  width: 100%;
+  .itd-component {
+    margin: 0 1rem;
+    @include tablet {
+      margin: 0 2rem;
+    }
+    border-radius: 0.25rem;
+    background-color: $color-instock-white;
+    &__header {
+      padding: 2rem 2rem 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid $color-instock-cloud;
+      .header-start {
+        display: flex;
+        .back-link {
+          align-self: flex-end;
+          margin-right: 0.5rem;
+        }
+      }
+      .header-end {
+        .edit-button {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          height: 2.25rem;
+          border: none;
+          border-radius: 1.25rem;
+          color: $color-instock-white;
+          background-color: $color-instock-indigo;
+          padding: 0 0.4rem;
+          @include tablet {
+            padding: 0 1rem;
+          }
+          &__text {
+            color: $color-instock-white;
+            display: none;
+            @include tablet {
+              display: inline;
+            }
+          }
+        }
+      }
+    }
+    &__body {
+      padding-bottom: 1rem;
+      @include tablet {
+        display: flex;
+        padding-bottom: 0.5rem;
+      }
+      .body-start,
+      .body-end {
+        @include tablet {
+          width: 50%;
+          margin: 1.5rem 0;
+        }
+        padding: 0 2rem;
+        .tag-wrapper {
+          margin-top: 0.25rem;
+        }
+        .row {
+          padding: 1rem 0 0.5rem 0;
+          @include tablet {
+            padding: 0 0 2rem 0;
+            &--no-padding-tablet {
+              padding: 0;
+            }
+          }
+          .columns {
+            display: flex;
+            .column {
+              width: 50%;
+            }
+          }
+          .detail-text {
+            @include p2;
+            margin-top: 0.25rem;
+            &--tag-red,
+            &--tag-green {
+              font-weight: 400;
+              border-radius: 1.25rem;
+              padding: 0.25rem 0.5rem;
+              @include tablet {
+                height: 1.625rem;
+              }
+            }
+            &--tag-red {
+              color: $color-instock-red;
+              background-color: rgb(201, 69, 21, 0.07);
+            }
+            &--tag-green {
+              color: $color-instock-green;
+              background-color: rgb(21, 132, 99, 0.07);
+            }
+          }
+        }
+      }
+      .body-start {
+        @include tablet {
+          border-right: 1px solid $color-instock-cloud;
+        }
+      }
+    }
+    @include desktop-centre;
+  }
+}
