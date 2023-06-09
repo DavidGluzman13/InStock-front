@@ -49,10 +49,6 @@ export default function WarehouseAdd() {
       .post("http://localhost:8080/api/warehouses/", newWarehouse)
       .then((response) => {
         console.log(response.data);
-        // navigate("/SuccessPage"); some type of success prompt
-        setTimeout(() => {
-          // navigate("/");
-        }, 2000);
       })
       .catch((error) => {
         console.error(error);
@@ -83,6 +79,7 @@ export default function WarehouseAdd() {
   const handleContact_email = (event) => {
     setContact_email(event.target.value);
   };
+
   // wha === warehouse add
   return (
     <div className="wha-wrapper">
@@ -106,7 +103,7 @@ export default function WarehouseAdd() {
                 Warehouse Name
               </label>
               <input
-                className="wha__input"
+                className={"wha__input"}
                 value={warehouse_name}
                 onChange={handleWarehouse_name}
                 type="text"
