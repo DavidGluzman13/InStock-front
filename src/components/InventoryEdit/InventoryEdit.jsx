@@ -1,6 +1,6 @@
 import "./InventoryEdit.scss";
 import backIcon from "../../assets/Icons/arrow_back-24px.svg";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import dropIcon from "../../assets/Icons/arrow_drop_down-24px.svg";
 import axios from "axios";
@@ -118,6 +118,8 @@ export default function InventoryEdit() {
       status: tempStatus,
       quantity: tempQuantity,
     });
+
+    alert("Inventory item has been updated");
   };
 
   return (
@@ -237,8 +239,8 @@ export default function InventoryEdit() {
                       <input
                         name="quantity"
                         id="quantity"
-                        type="number"
-                        className={`inv-edit__input  ${
+                        type="text"
+                        className={`inv-edit__input inv-edit__input--quantity  ${
                           isQuantityValid ? "" : "inv-edit__invalid-field"
                         }`}
                         value={quantity}

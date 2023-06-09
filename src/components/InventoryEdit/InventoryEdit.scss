@@ -56,11 +56,10 @@
   }
 
   &__form-container {
-    display: flex;
-    justify-content: space-between;
-
     @include tablet {
       padding: 1rem 0;
+      display: flex;
+      justify-content: space-between;
     }
   }
 
@@ -85,6 +84,12 @@
     &--textarea {
       resize: none;
       height: 7.5rem;
+    }
+
+    &--quantity {
+      @include tablet {
+        width: 7.625rem;
+      }
     }
 
     @include tablet {
