@@ -51,8 +51,9 @@
 
 // To set a max width and centre the page for pages above desktop
 @mixin desktop-centre {
-  @media screen and (min-width: $desktop-breakpoint) {
-    width: $desktop-breakpoint;
+  $desktop-centre-breakpoint: 1100px;
+  @media screen and (min-width: $desktop-centre-breakpoint) {
+    width: calc($desktop-centre-breakpoint - 64px);
     margin: 0 auto;
   }
 }
