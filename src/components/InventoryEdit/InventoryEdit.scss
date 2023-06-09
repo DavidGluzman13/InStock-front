@@ -228,4 +228,10 @@
     border-radius: 50px;
     position: relative;
   }
+
+  &__error {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
 }

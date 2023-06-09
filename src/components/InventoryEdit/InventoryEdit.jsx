@@ -4,6 +4,7 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import dropIcon from "../../assets/Icons/arrow_drop_down-24px.svg";
 import axios from "axios";
+import errorIcon from "../../assets/Icons/error-24px.svg";
 export default function InventoryEdit() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -77,10 +78,14 @@ export default function InventoryEdit() {
     if (!name) {
       setIsNameValid(false);
       return console.log("Invalid name field");
+    } else {
+      setIsNameValid(true);
     }
     if (!description) {
       setIsDescriptionValid(false);
       return console.log("Invalid description field");
+    } else {
+      setIsDescriptionValid(true);
     }
 
     if (status === "in stock" && (quantity < 0 || quantity === null)) {
@@ -152,6 +157,17 @@ export default function InventoryEdit() {
                       value={name}
                       onChange={handleNameChange}
                     />
+                    {!isNameValid ? (
+                      <label className="inv-edit__error">
+                        <img
+                          className="inv-edit__error__icon"
+                          src={errorIcon}
+                        />
+                        This field is required
+                      </label>
+                    ) : (
+                      ""
+                    )}
                   </div>
                   <div className="inv-edit__field">
                     <label className="inv-edit__label" htmlFor="description">
@@ -167,6 +183,17 @@ export default function InventoryEdit() {
                       value={description}
                       onChange={handleDescriptionChange}
                     />
+                    {!isDescriptionValid ? (
+                      <label className="inv-edit__error">
+                        <img
+                          className="inv-edit__error__icon"
+                          src={errorIcon}
+                        />
+                        This field is required
+                      </label>
+                    ) : (
+                      ""
+                    )}
                   </div>
 
                   <div className="inv-edit__field ">
