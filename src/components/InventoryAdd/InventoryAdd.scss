@@ -6,6 +6,11 @@
   // background-color: $color-instock-white;
   display: flex;
   justify-content: center;
+
+  @include tablet{
+    margin: 0 auto;
+  }
+
 }
 
 .input {
@@ -33,8 +38,10 @@
 
   @include tablet {
     top: 5rem;
-    width: 92vw;
+    max-width: 63.75rem;
   }
+
+  
 
   .itm-heading {
     display: flex;
@@ -51,6 +58,7 @@
 
       @include tablet {
         font-size: 2rem;
+        
       }
     }
 
