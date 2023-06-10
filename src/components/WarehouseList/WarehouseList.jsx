@@ -42,7 +42,6 @@ export default function WarehouseList() {
           setShowModal(false);
           setSelectedWarehouse(null);
         });
-      console.log("I m here");
     }
   };
 
@@ -55,7 +54,6 @@ export default function WarehouseList() {
     setShowModal(false);
     setSelectedWarehouse(null);
   };
-  console.log(selectedWarehouse);
 
   return (
     <div className="component-wrapper">
@@ -141,11 +139,13 @@ export default function WarehouseList() {
                     </div>
                   </div>
                   <div className="component__mini-container component__mini-container--edit">
-                    <img
-                      className="component__edit component__edit--mobile"
-                      src={editIcon}
-                      alt="Edit icon"
-                    />
+                    <Link to={`/warehouses/${warehouse.id}/edit`}>
+                      <img
+                        className="component__edit component__edit--mobile"
+                        src={editIcon}
+                        alt="Edit icon"
+                      />
+                    </Link>
                   </div>
                 </div>
                 <div className="component__icons-holder component__mini-container--small">
@@ -155,11 +155,13 @@ export default function WarehouseList() {
                     onClick={() => openModal(warehouse)}
                     alt="Delete icon"
                   />
-                  <img
-                    className="component__edit"
-                    src={editIcon}
-                    alt="Edit icon"
-                  />
+                  <Link to={`/warehouses/${warehouse.id}/edit`}>
+                    <img
+                      className="component__edit"
+                      src={editIcon}
+                      alt="Edit icon"
+                    />
+                  </Link>
                 </div>
               </li>
             ))}
