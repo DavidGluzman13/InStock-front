@@ -12,10 +12,9 @@ export default function WarehouseDetails({ currentWarehouse }) {
     navigate("/");
   }
 
-  // fix the id you're inputing in the path
   function navigateToEdit(e) {
     e.preventDefault();
-    navigate(`/warehouses/${id}/edit`);
+    navigate(`/warehouses/${currentWarehouse.id}/edit`);
   }
 
   return (
