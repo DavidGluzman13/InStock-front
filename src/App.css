@@ -17,11 +17,10 @@ html * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: TrilliumWeb, sans-serif;
   color: #13182c;
 }
-html body {
-  box-sizing: border-box;
+html body * {
+  font-family: "TitilliumWeb", sans-serif;
 }
 html body a {
   text-decoration: none;

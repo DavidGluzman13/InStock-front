@@ -7,21 +7,42 @@
   display: flex;
   justify-content: center;
 
-  @include tablet{
+  @include tablet {
     margin: 0 auto;
   }
+}
 
+.error-wrapper {
+  width: 100%;
+  display: flex;
+  padding: 0.5rem 0;
+
+  .error__icon {
+    padding-right: 0.5rem;
+  }
+}
+
+.padding-div {
+  padding: 1rem;
 }
 
 .input {
   width: 100%;
+  outline: none;
   border: 1px solid $color-instock-cloud;
   border-radius: 50px;
-  padding: 0.5rem;
-  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+
+  &--invalid {
+    border: 1px solid red;
+  }
 
   &::placeholder {
     @include p2;
+  }
+
+  &:focus {
+    border: 1px solid $color-instock-indigo;
   }
 }
 
@@ -41,8 +62,6 @@
     max-width: 63.75rem;
   }
 
-  
-
   .itm-heading {
     display: flex;
     align-items: normal;
@@ -58,7 +77,6 @@
 
       @include tablet {
         font-size: 2rem;
-        
       }
     }
 
@@ -103,6 +121,9 @@
     @extend .input;
     padding-bottom: 5rem;
     border-radius: 15px;
+    &--invalid {
+      border: 1px solid red;
+    }
   }
 }
 
@@ -110,6 +131,7 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
+  flex-wrap: nowrap;
   align-items: center;
   border: 1px solid $color-instock-cloud;
   border-radius: 50px;
@@ -121,8 +143,11 @@
     -moz-appearance: none;
     border: none;
     width: 100%;
-
     margin: 0;
+
+    &--invalid {
+      border: 1px solid red;
+    }
   }
   .drop-arrow {
     position: absolute;
@@ -152,6 +177,10 @@
     width: 100%;
     position: relative;
     margin: 0;
+
+    &--invalid {
+      border: 1px solid red;
+    }
   }
   .drop-arrow {
     position: absolute;
@@ -183,7 +212,7 @@
   display: flex;
   justify-content: space-between;
   width: 80%;
-  padding-bottom: 1rem;
+  // padding-bottom: 1rem;
 
   &__instock {
     label {
