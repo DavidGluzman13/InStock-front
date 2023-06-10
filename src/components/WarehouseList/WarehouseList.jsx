@@ -55,6 +55,7 @@ export default function WarehouseList() {
     setShowModal(false);
     setSelectedWarehouse(null);
   };
+  console.log(selectedWarehouse);
 
   return (
     <div className="component-wrapper">
@@ -167,7 +168,11 @@ export default function WarehouseList() {
       </section>
 
       {showModal && selectedWarehouse && (
-        <Modal title={selectedWarehouse.warehouse_name} onClose={closeModal}>
+        <Modal
+          title={selectedWarehouse.warehouse_name}
+          onClose={closeModal}
+          source={"warehouse"}
+        >
           <div className="modal__buttons">
             <button
               className="modal__btn modal__btn--cancel"
