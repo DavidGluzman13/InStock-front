@@ -88,9 +88,11 @@ export default function InventoryEdit() {
       setIsDescriptionValid(true);
     }
 
-    if (status === "in stock" && (quantity < 0 || quantity === null)) {
+    if (status === "in stock" && (quantity <= 0 || quantity === null)) {
       setIsQuantityValid(false);
       return console.log("Invalid quantity field");
+    } else {
+      setIsQuantityValid(true);
     }
 
     let tempQuantity;
@@ -134,7 +136,14 @@ export default function InventoryEdit() {
     <div className="inv-edit-wrapper">
       <section className="inv-edit">
         <div className="inv-edit__header">
-          <img className="inv-edit__back-icon" src={backIcon} alt="back icon" />
+          <Link to={`/inventories/${param.id}`}>
+            <img
+              className="inv-edit__back-icon"
+              src={backIcon}
+              alt="back icon"
+            />
+          </Link>
+
           <h1 className="inv-edit__title ">Edit Inventory Item</h1>
         </div>
         <div className="inv-edit__body">
@@ -283,6 +292,17 @@ export default function InventoryEdit() {
                         value={quantity}
                         onChange={handleQuantityChange}
                       />
+                      {!isQuantityValid ? (
+                        <label className="inv-edit__error">
+                          <img
+                            className="inv-edit__error__icon"
+                            src={errorIcon}
+                          />
+                          Please enter a valid number
+                        </label>
+                      ) : (
+                        ""
+                      )}
                     </div>
                   )}
 

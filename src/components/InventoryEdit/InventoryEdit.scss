@@ -20,12 +20,13 @@
   width: 95vw;
 
   @include tablet {
-    max-width: 63.75rem;
+    max-width: 64.65rem;
     top: 92px;
   }
 
   &__header {
     display: flex;
+    align-items: center;
     padding-left: 1.5rem;
     gap: 0.6rem;
     padding-bottom: 1.5rem;
