@@ -1,0 +1,117 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/globals" as *;
+
+.modal {
+  &__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    overflow: hidden;
+  }
+
+  &__content {
+    background-color: #ffffff;
+    max-width: 100%;
+    width: 100%;
+    max-height: 100%;
+    height: 100%;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    overflow-y: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @include tablet {
+      width: 42rem;
+
+      // height: 17rem;
+      height: auto;
+      padding: 1rem 1.4rem 2rem 3rem;
+    }
+  }
+
+  &__btn {
+    border-radius: 1.25rem;
+    padding: 0.5rem 2.9375rem;
+    border: none;
+    cursor: pointer;
+    flex: 1;
+    @include tablet {
+      padding: 8px 1.4rem;
+      flex: 0;
+    }
+
+    &--cancel {
+      background-color: $color-instock-white;
+      border: 1px solid $color-instock-cloud;
+      color: $color-instock-black;
+    }
+
+    &--delete {
+      background-color: $color-instock-red;
+      border: 1px solid $color-instock-cloud;
+      color: $color-instock-white;
+    }
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 1rem;
+
+    @include tablet {
+      margin-bottom: 2rem;
+      padding-right: 4rem;
+    }
+  }
+
+  &__upper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    @include tablet {
+      gap: 0.2rem;
+    }
+  }
+  &__buttons {
+    display: flex;
+    gap: 1rem;
+
+    @include tablet {
+      align-self: flex-end;
+      margin-right: 2rem;
+    }
+  }
+  &__description {
+    @include p1;
+  }
+  &__close {
+    border: none;
+    background: none;
+    font-size: 1.4rem;
+    cursor: pointer;
+    align-self: flex-end;
+  }
+
+  &__body {
+    margin-bottom: 1rem;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
