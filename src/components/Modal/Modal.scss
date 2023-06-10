@@ -26,7 +26,7 @@
     padding: 1rem;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    overflow-y: auto;
+    overflow-y: none;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -34,7 +34,8 @@
     @include tablet {
       width: 42rem;
 
-      height: 17rem;
+      // height: 17rem;
+      height: auto;
       padding: 1rem 1.4rem 2rem 3rem;
     }
   }
