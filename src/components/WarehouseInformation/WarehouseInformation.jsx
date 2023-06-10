@@ -30,7 +30,6 @@ export default function WarehouseInformation() {
   return (
     <>
       <WarehouseDetails currentWarehouse={currentWarehouse} />
-      <WarehouseInventoryList />
     </>
   );
 }
