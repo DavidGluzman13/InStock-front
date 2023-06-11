@@ -12,7 +12,7 @@ export default function InventoryAdd() {
   const [item_name, setItem_name] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
-  const [status, setStatus] = useState("In Stock");
+  const [status, setStatus] = useState("");
   const [quantity, setQuantity] = useState("");
   const [warehouse_id, setWarehouse_id] = useState("");
   const [error, setError] = useState(false);
@@ -154,7 +154,7 @@ export default function InventoryAdd() {
                     onChange={handleItem_name}
                     value={item_name}
                   />{" "}
-                  {error && !description ? (
+                  {error && !isItem_name ? (
                     <div className="error-wrapper">
                       <img className="error__icon" src={errorIcon} />
                       <label className="error">This field is required</label>
@@ -203,7 +203,7 @@ export default function InventoryAdd() {
                       alt="drop down arrow"
                     />
                   </div>
-                  {error && !description ? (
+                  {error && !category ? (
                     <div className="error-wrapper">
                       <img className="error__icon" src={errorIcon} />
                       <label className="error">This field is required</label>
@@ -243,7 +243,7 @@ export default function InventoryAdd() {
                         <label>Out of Stock</label>
                       </div>
                     </div>
-                    {error && !description ? (
+                    {error && !status ? (
                       <div className="error-wrapper">
                         <img className="error__icon" src={errorIcon} />
                         <label className="error">This field is required</label>
@@ -265,7 +265,7 @@ export default function InventoryAdd() {
                         onChange={handleQuantity}
                         value={quantity}
                       />
-                      {error && !description ? (
+                      {error && !quantity ? (
                         <div className="error-wrapper">
                           <img className="error__icon" src={errorIcon} />
                           <label className="error">
@@ -304,7 +304,7 @@ export default function InventoryAdd() {
                         alt="drop down arrow"
                       />
                     </div>
-                    {error && !description ? (
+                    {error && !warehouse_id ? (
                       <div className="error-wrapper">
                         <img className="error__icon" src={errorIcon} />
                         <label className="error">This field is required</label>
