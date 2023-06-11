@@ -1,0 +1,195 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.wha-wrapper {
+    display: flex;
+    justify-content: center;
+}
+.wha {
+    padding-top: 2rem;
+    position: absolute;
+    top: 8.5rem;
+    border-radius: 3px;
+    background-color: $color-instock-white;
+    margin: 0 1rem;
+    width: 95vw;
+
+    @include tablet {
+        width: 90vw;
+        top: 92px;
+    }
+
+    @include desktop {
+        width: 85vw;
+
+        @media screen and (min-width: $desktop-breakpoint) {
+            width: 1036px;
+            margin: 0 auto;
+        }
+    }
+
+    &__header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid $color-instock-cloud;
+
+        &--icon {
+            padding-right: 0.5rem;
+        }
+        &--title {
+            color: $color-instock-black;
+            font-size: 1.35rem;
+            font-weight: 700;
+            @include tablet {
+                font-size: 1.75rem;
+                padding-bottom: 0.3rem;
+            }
+            @include desktop {
+                font-size: 1.85rem;
+                padding-top: 0.4rem;
+            }
+        }
+        @include tablet {
+            justify-content: start;
+            padding-left: 2rem;
+        }
+    }
+
+    &__form {
+        // whole form under header border
+        @include tablet {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+    }
+
+    &__section {
+        // 2 main sections
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 1rem;
+        @include tablet {
+            width: 50%;
+            margin: 0.5rem 0;
+            border-bottom: none;
+            padding: 0 1rem;
+        }
+        &--divider {
+            border-bottom: 1px solid $color-instock-cloud;
+            @include tablet {
+                border-bottom: none;
+                border-right: 1px solid $color-instock-cloud;
+            }
+        }
+    }
+
+    &__subh {
+        // only h2
+        width: 100%;
+        padding: 1rem 1rem 1.375rem 1rem;
+        @include tablet {
+            font-size: 1.45rem;
+            padding: 1rem 1rem 2rem 1rem;
+        }
+    }
+
+    &__field {
+        // label+input
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 100%;
+        @include tablet {
+            padding-bottom: 0.75rem;
+        }
+    }
+    &__label {
+        font-weight: 600;
+        font-size: 13px;
+        line-height: 20px;
+        margin-bottom: 0.25rem;
+        width: 100%;
+        margin: 0 1rem;
+        @include tablet {
+            padding: 0 0 0.25rem 0;
+        }
+    }
+
+    &__input {
+        border-radius: 1.25rem;
+        height: 2.25rem;
+        padding: 1rem;
+        width: 100%;
+        margin: 0 1rem 1rem 1rem;
+        border: 1px solid $color-instock-cloud;
+        &:focus {
+            outline: none;
+            border: 1px solid $color-instock-indigo;
+        }
+        &--invalid {
+            border: 1px solid red;
+        }
+    }
+}
+
+.error {
+    color: red;
+    font-size: 0.75rem;
+    width: 90%;
+    display: flex;
+    justify-content: start;
+    padding: -1rem;
+    margin: -1rem -1rem 0 -1rem;
+    &__icon {
+        width: 0.75rem;
+    }
+}
+
+.wha-button {
+    display: flex;
+    justify-content: center;
+    background-color: rgba(247, 248, 249, 0.7);
+    padding: 1rem 0;
+    width: 100%;
+
+    @include tablet {
+        justify-content: end;
+    }
+    &__gen {
+        height: 2.25rem;
+        border-radius: 1.25rem;
+        border-style: none;
+        font-size: 0.9rem;
+        text-align: center;
+        width: 9rem;
+        margin: 0 0.5rem;
+
+        &--cancel {
+            width: 100%;
+            background-color: $color-instock-white;
+            border: 1px solid $color-instock-cloud;
+            padding-top: 0.4rem;
+            @include tablet {
+                width: 72px;
+                height: 38px;
+            }
+        }
+
+        &--save {
+            width: 100%;
+            background-color: $color-instock-indigo;
+            color: $color-instock-white;
+            @include tablet {
+                width: 72px;
+                height: 38px;
+            }
+        }
+    }
+}
