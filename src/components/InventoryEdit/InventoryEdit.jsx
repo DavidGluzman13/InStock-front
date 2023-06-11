@@ -31,6 +31,11 @@ export default function InventoryEdit() {
     "Boston",
   ];
 
+  const navigateBack = (event) => {
+    event.preventDefault();
+    navigate(-1);
+  };
+
   useEffect(() => {
     axios
       .get(`http://localhost:8080/api/inventories/${param.id}`)
@@ -136,13 +141,12 @@ export default function InventoryEdit() {
     <div className="inv-edit-wrapper">
       <section className="inv-edit">
         <div className="inv-edit__header">
-          <Link to={`/inventories/${param.id}`}>
-            <img
-              className="inv-edit__back-icon"
-              src={backIcon}
-              alt="back icon"
-            />
-          </Link>
+          <img
+            className="inv-edit__back-icon"
+            src={backIcon}
+            alt="back icon"
+            onClick={navigateBack}
+          />
 
           <h1 className="inv-edit__title ">Edit Inventory Item</h1>
         </div>
@@ -337,12 +341,12 @@ export default function InventoryEdit() {
             </div>
 
             <div className="inv-edit__btn-container">
-              <Link
-                to="/inventories"
+              <div
+                onClick={navigateBack}
                 className="inv-edit__btn inv-edit__btn--cancel"
               >
                 Cancel
-              </Link>
+              </div>
               <button className="inv-edit__btn inv-edit__btn--save">
                 Save
               </button>
