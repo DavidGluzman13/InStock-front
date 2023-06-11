@@ -4,6 +4,7 @@ import deleteIcon from "../../assets/Icons/delete_outline-24px.svg";
 import editIcon from "../../assets/Icons/edit-24px.svg";
 import sortIcon from "../../assets/Icons/sort-24px.svg";
 import Modal from "../Modal/Modal";
+import { useNavigate } from "react-router-dom";
 
 import { useState, useEffect } from "react";
 import axios from "axios";
@@ -13,7 +14,7 @@ export default function InventoryList() {
   const [inventories, setInventories] = useState(null);
   const [selectedInventory, setSelectedInventory] = useState(null);
   const [showModal, setShowModal] = useState(false);
-  const [isWarehousesRetrieved, setIsWarehousesRetrieved] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios.get("http://localhost:8080/api/inventories").then((response) => {
@@ -161,6 +162,9 @@ export default function InventoryList() {
                       className="il-component__edit il-component__edit--mobile"
                       src={editIcon}
                       alt="Edit icon"
+                      onClick={() =>
+                        navigate(`/inventories/${inventory.id}/edit`)
+                      }
                     />
                   </div>
                 </div>
@@ -175,6 +179,9 @@ export default function InventoryList() {
                     className="il-component__edit"
                     src={editIcon}
                     alt="Edit icon"
+                    onClick={() =>
+                      navigate(`/inventories/${inventory.id}/edit`)
+                    }
                   />
                 </div>
               </li>

@@ -2,6 +2,7 @@ import whiteEditIcon from "../../assets/Icons/edit-24px-white.svg";
 import backArrow from "../../assets/Icons/arrow_back-24px.svg";
 import "./WarehouseDetails.scss";
 import { useNavigate, Link } from "react-router-dom";
+import WarehouseInventoryList from "../WarehouseInventoryList/WarehouseInventoryList";
 
 export default function WarehouseDetails({ currentWarehouse }) {
   const navigate = useNavigate();
@@ -11,10 +12,9 @@ export default function WarehouseDetails({ currentWarehouse }) {
     navigate("/");
   }
 
-  // fix the id you're inputing in the path
   function navigateToEdit(e) {
     e.preventDefault();
-    navigate(`/warehouses/${id}/edit`);
+    navigate(`/warehouses/${currentWarehouse.id}/edit`);
   }
 
   return (
@@ -62,6 +62,7 @@ export default function WarehouseDetails({ currentWarehouse }) {
             </div>
           </div>
           {/* -----------------Items------------------ */}
+          <WarehouseInventoryList currentWarehouse={currentWarehouse} />
         </div>
       </div>
     </>
