@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import dropIcon from "../../assets/Icons/arrow_drop_down-24px.svg";
 import axios from "axios";
 import errorIcon from "../../assets/Icons/error-24px.svg";
+import Footer from "../Footer/Footer";
+
 export default function InventoryEdit() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -353,6 +355,7 @@ export default function InventoryEdit() {
             </div>
           </form>
         </div>
+        <Footer />
       </section>
     </div>
   );
