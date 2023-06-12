@@ -10,15 +10,18 @@
 
 .wh-component {
   position: absolute;
-  top: 8.5rem;
+  top: 8rem;
   border-radius: 3px;
   background-color: $color-instock-white;
   width: 95vw;
 
+  @include tablet {
+    top: 7rem;
+  }
+
   display: flex;
   flex-direction: column;
   @include desktop-centre;
-  
 }
 
 .heading {
