@@ -25,7 +25,6 @@
   }
 }
 .il-component {
-  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.1);
   padding-top: 2rem;
   position: absolute;
   top: 8.5rem;
@@ -33,6 +32,10 @@
   background-color: $color-instock-white;
   margin: 0 1rem;
   width: 95vw;
+
+  &__body {
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.1);
+  }
 
   @include tablet {
     width: 90vw;

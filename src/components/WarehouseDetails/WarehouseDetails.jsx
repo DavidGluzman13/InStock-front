@@ -3,6 +3,7 @@ import backArrow from "../../assets/Icons/arrow_back-24px.svg";
 import "./WarehouseDetails.scss";
 import { useNavigate, Link } from "react-router-dom";
 import WarehouseInventoryList from "../WarehouseInventoryList/WarehouseInventoryList";
+import Footer from "../Footer/Footer";
 
 export default function WarehouseDetails({ currentWarehouse }) {
   const navigate = useNavigate();
@@ -63,6 +64,7 @@ export default function WarehouseDetails({ currentWarehouse }) {
           </div>
           {/* -----------------Items------------------ */}
           <WarehouseInventoryList currentWarehouse={currentWarehouse} />
+          <Footer />
         </div>
       </div>
     </>

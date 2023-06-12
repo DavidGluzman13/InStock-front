@@ -4,6 +4,7 @@ import deleteIcon from "../../assets/Icons/delete_outline-24px.svg";
 import editIcon from "../../assets/Icons/edit-24px.svg";
 import sortIcon from "../../assets/Icons/sort-24px.svg";
 import Modal from "../Modal/Modal";
+import Footer from "../Footer/Footer";
 
 import { useState, useEffect } from "react";
 import axios from "axios";
@@ -167,6 +168,7 @@ export default function WarehouseList() {
             ))}
           </ul>
         </div>
+        <Footer />
       </section>
 
       {showModal && selectedWarehouse && (

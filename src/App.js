@@ -15,7 +15,7 @@ export default function App() {
         <Route path="/warehouses/*" element={<Warehouse />} />
         <Route path="/inventories/*" element={<Inventory />} />
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </BrowserRouter>
   );
 }

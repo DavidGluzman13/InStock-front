@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import backArrow from "../../assets/Icons/arrow_back-24px.svg";
 import dropDownArrow from "../../assets/Icons/arrow_drop_down-24px.svg";
 import errorIcon from "../../assets/Icons/error-24px.svg";
+import Footer from "../Footer/Footer";
 
 export default function InventoryAdd() {
   const navigate = useNavigate();
@@ -325,32 +326,9 @@ export default function InventoryAdd() {
               </div>
             </form>
           </div>
+          <Footer />
         </div>
       </div>
     </>
-  );
-}
-
-{
-  status === "In Stock" && (
-    <div className="quantity">
-      <h3>Quantity</h3>
-      <input
-        name="quantity"
-        className={`input ${isQuantity ? "" : "input--invalid"}`}
-        placeholder="0"
-        type="number"
-        onChange={handleQuantity}
-        value={quantity}
-      />
-      {error && !description ? (
-        <div className="error-wrapper">
-          <img className="error__icon" src={errorIcon} />
-          <label className="error">This field is required</label>
-        </div>
-      ) : (
-        <div className="padding-div"></div>
-      )}
-    </div>
   );
 }

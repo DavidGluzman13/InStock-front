@@ -5,7 +5,7 @@ import editIcon from "../../assets/Icons/edit-24px.svg";
 import sortIcon from "../../assets/Icons/sort-24px.svg";
 import Modal from "../Modal/Modal";
 import { useNavigate } from "react-router-dom";
-
+import Footer from "../Footer/Footer";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -188,6 +188,7 @@ export default function InventoryList() {
             ))}
           </ul>
         </div>
+        <Footer />
       </section>
 
       {showModal && selectedInventory && (
