@@ -332,6 +332,7 @@
   ul.il-component__list li.il-component__item:nth-child(2) {
     border-top: none;
   }
+  @include desktop-centre;
 }
 
 .test {
