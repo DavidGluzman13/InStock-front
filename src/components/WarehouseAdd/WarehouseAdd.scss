@@ -176,7 +176,8 @@
             width: 100%;
             background-color: $color-instock-white;
             border: 1px solid $color-instock-cloud;
-            padding-top: 0.75rem;
+            padding-top: 0.45;
+            text-align: center;
             @include tablet {
                 width: 72px;
                 height: 38px;
